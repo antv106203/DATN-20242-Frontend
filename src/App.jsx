@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react'
-// import './App.css'
+import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Login from './pages/Login/Login'
 import { useDispatch, useSelector } from 'react-redux'

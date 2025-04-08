@@ -1,0 +1,39 @@
+.header{
+    background-color: #ebedea;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 35px;
+    justify-content: right;
+}
+.tagLogout{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    color: #a0a29e;
+    font-size: 16px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tagLogout:hover{
+    background-color: #08a189;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+}
+.tagLogout:hover .icon-header {
+    color: white; /* Đảm bảo icon chuyển sang màu trắng */
+}
+
+.icon-header {
+    font-size: 20px; /* Điều chỉnh kích thước icon */
+    color: #a0a29e;
+}

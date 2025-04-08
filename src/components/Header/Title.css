@@ -1,0 +1,14 @@
+.title-container{
+    background-color: #FFFFFF;
+    display: flex;
+    padding-left: 60px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.title-name{
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    color: #52768f;
+    font-size: 20px;
+    font-weight: 900;
+}

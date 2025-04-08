@@ -17,7 +17,7 @@
   height: 100vh;
   background-color: deepskyblue;
   color: white;
-  position: fixed;
+  position: relative;
   top: 0;
   text-align: center;
   transition: all .3s ease-in-out;
@@ -94,7 +94,7 @@
 .bg-new-purple .item:hover {
   background-color: #20313a;
   color: white;
-  border-right: 4px solid #08a189
+  border-right: 4px solid #08a189;
 }
 
 
@@ -185,4 +185,9 @@ input {
 
 .float-right {
   float: right;
+}
+
+.active-item {
+  background-color: #08a189 !important;
+  color: white !important;
 }

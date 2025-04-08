@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 // Redux
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import './index.css'
+// import './index.css'
 import App from './App.jsx'
 import allReducers from './reducers/index.js'
 
