@@ -86,3 +86,22 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
 }
+.listdepartment-room-filter-order{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    box-sizing: border-box;
+}
+.listdepartment-room-filter-order svg {
+    font-size: 18px; /* hoặc 24px */
+    color: #666;
+    transition: all 0.2s ease-in-out;
+}
+.listdepartment-room-filter-order svg:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.listdepartment-room-filter-order svg.active {
+    color: #08a189;
+    font-weight: bold;
+}

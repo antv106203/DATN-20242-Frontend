@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faArrowUp, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Title from "../Header/Title";
 import Floor from "./Floor";
 import "./ListDepartment.css"
@@ -21,7 +21,11 @@ const ListDepartment = () =>{
     }
 
     const handleSelectFloor = (floorName) => {
-        setFloor(floorName);
+        if (floor === floorName) {
+            setFloor(null); // bỏ chọn nếu tầng đang được chọn
+        } else {
+            setFloor(floorName);
+        }
     };
 
     useEffect(() =>{
@@ -54,6 +58,18 @@ const ListDepartment = () =>{
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)} 
                             />
+                            <div className="listdepartment-room-filter-order">
+                                <FontAwesomeIcon 
+                                    icon={faArrowUp}
+                                    onClick={() => setOrder("asc")}
+                                    className={order === "asc" ? "active" : ""} 
+                                />
+                                <FontAwesomeIcon 
+                                    icon={faArrowDown}
+                                    onClick={() => setOrder("desc")}
+                                    className={order === "desc" ? "active" : ""} 
+                                />
+                            </div>
                         </div>
                         <div className="listdepartment-room-content">
                             {listRoom.map((room, index) => (
