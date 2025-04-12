@@ -5,6 +5,7 @@ import "./Layout.css"
 import Header from "../components/Header/Header";
 import DepartmentPage from "../pages/Department/DepartmentPage";
 import StaffPage from "../pages/Staff/StaffPage";
+import AccessLogPage from "../pages/AccessLog/AccessLogPage";
 
 const Layout = () =>{
     return(
@@ -16,6 +17,7 @@ const Layout = () =>{
                     <Route path="/dashboard/*"element = {<Dashboard />} />
                     <Route path="/department/*"element = {<DepartmentPage />} />
                     <Route path="/staff/*"element = {<StaffPage />} />
+                    <Route path="/history/*"element = {<AccessLogPage />} />
                 </Routes>
             </div>
         </div>
