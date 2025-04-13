@@ -32,23 +32,23 @@ const Sidebar = () =>{
                 <Icon className="fas fa-home" />
                 Trang chủ
             </Item>
-            <Item bgColor={typeClass} onClick={() => handleClick('/at/department')} isActive={currentPath === '/at/department'}>
+            <Item bgColor={typeClass} onClick={() => handleClick('/at/department')} isActive={currentPath.includes('/at/department')}>
                 <Icon className="fa-regular fa-building"/>
                 Phòng ban
             </Item>
-            <Item bgColor={typeClass} onClick={() => handleClick('/at/staff')} isActive={currentPath === '/at/staff'}>
+            <Item bgColor={typeClass} onClick={() => handleClick('/at/staff')} isActive={currentPath.includes('/at/staff')}>
                 <Icon className="fa-regular fa-id-card"/>
                 Nhân sự
             </Item>
-            <Item bgColor={typeClass} onClick={() => handleClick('/at/fingerprint')} isActive={currentPath === '/at/fingerprint'}>
+            <Item bgColor={typeClass} onClick={() => handleClick('/at/fingerprint')} isActive={currentPath.includes('/at/fingerprint')}>
                 <Icon className="fa-regular fa-hand-spock"/>
                 Vân tay
             </Item>
-            <Item bgColor={typeClass} onClick={() => handleClick('/at/history')} isActive={currentPath === '/at/history'}>
+            <Item bgColor={typeClass} onClick={() => handleClick('/at/history')} isActive={currentPath.includes('/at/history')}>
                 <Icon className="fa-regular fa-clock"/>
                 Lịch sử
             </Item>
-            <Item bgColor={typeClass} onClick={() => handleClick('/at/account')} isActive={currentPath === '/at/account'}>
+            <Item bgColor={typeClass} onClick={() => handleClick('/at/account')} isActive={currentPath.includes('/at/account')}>
                 <Icon className="fa-regular fa-user"/>
                 Tài khoản
             </Item>

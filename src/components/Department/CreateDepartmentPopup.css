@@ -1,0 +1,188 @@
+.create-department-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.create-department-popup {
+    background-color: white;
+    border-radius: 8px;
+    width: 500px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.create-department-header{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #d0d1d0;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    color: #555353;
+}
+.create-department-button-cancel{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+.create-department-button-cancel:hover{
+    background-color: #ebedea;
+    cursor: pointer;
+}
+.create-department-button-cancel:active{
+    scale: 1.2;
+}
+.create-department-popup-content{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    gap: 20px;
+    border-bottom: 2px solid #d0d1d0;
+}
+.create-department-floor{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.create-department-floor-label{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    flex: 3;
+    font-weight: 550;
+    font-size: 17px;
+}
+.create-department-floor-select{
+    display: flex;
+    flex: 7;    
+}
+.create-department-floor-select select{
+    height: 40px;
+    outline: none;
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px solid #cfd3cd;
+    font-weight: 550;
+    font-size: 16px;
+}
+.create-department-name{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.create-department-name-label{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    flex: 3;
+    font-weight: 550;
+    font-size: 17px;
+}
+.create-department-name-input {
+    display: flex;
+    flex: 7;  
+}
+.create-department-name-input input{
+    height: 40px;
+    outline: none;
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px solid #cfd3cd;
+    font-weight: 550;
+    font-size: 16px;
+}
+.create-department-code{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.create-department-code-label{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    flex: 3;
+    font-weight: 550;
+    font-size: 17px;
+}
+.create-department-code-input {
+    display: flex;
+    flex: 7;  
+}
+.create-department-code-input input{
+    height: 40px;
+    outline: none;
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px solid #cfd3cd;
+    font-weight: 550;
+    font-size: 16px;
+}
+.create-department-popup-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 20px 20px;
+    gap: 20px;
+}
+.create-department-popup-actions-cancel-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 15%;
+    border: 1px solid #e85757;
+    outline: none;
+    background-color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    color: #d63031;
+}
+.create-department-popup-actions-cancel-btn:hover{
+    cursor: pointer;
+}
+.create-department-popup-actions-cancel-btn:active{
+    cursor: pointer;
+    border: none;
+    background-color: #e85757;
+    color: #FFFFFF;
+}
+.create-department-popup-actions-submit-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 15%;
+    border: none;
+    outline: none;
+    background-color: #08a189;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+}
+.create-department-popup-actions-submit-btn:hover{
+    cursor: pointer;
+}
+.create-department-popup-actions-submit-btn:active{
+    cursor: pointer;
+    border: 1px solid #08a189;
+    background-color: #FFFFFF;
+    color: #08a189;
+}
+

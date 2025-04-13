@@ -127,6 +127,7 @@
     gap: 10px; /* khoảng cách giữa các item */
     padding: 40px 0px 40px 0px;
     perspective: 1000px; /* hiệu ứng 3D */
+    height: 400px;
 }
 .list-accesslog-pagination{
     display: flex;

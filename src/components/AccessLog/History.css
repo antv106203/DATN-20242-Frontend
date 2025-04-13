@@ -12,11 +12,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 .success-border {
-    border: 1px solid#00a5a5;
+    border: 3px solid#00a5a5;
 }
 
 .error-border {
-    border: 1px solid #fc645c;
+    border: 3px solid #fc645c;
 }
    
 

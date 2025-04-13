@@ -26,10 +26,35 @@
     justify-content: space-between; /* giúp căn đều trái phải */
     box-sizing: border-box;
 }
-.listdepartment-floor{
-    margin-top: 50px;
-    background-color: #ebedea;
+.listdepartment-floor-create{
     width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.listdepartment-create{
+    display: flex;
+    flex-direction: row;
+    background-color: #08a189;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+    border-radius: 5px;    
+}
+.listdepartment-create:hover{
+    cursor: pointer;
+}
+.listdepartment-create:active{
+    cursor: pointer;
+    scale: 1.05;
+}
+.listdepartment-floor{
+    /* margin-top: 50px; */
+    background-color: #ebedea;
+    width: 100%;
     padding: 20px 25px 20px 25px;
     box-sizing: border-box;
     display: flex;

@@ -6,3 +6,8 @@ export const fetchListDepartment = async (search, order, floor) => {
 
     return response.data
 }
+
+export const createNewDepartment = async (department) => {
+    const response = await axiosInstance.post("/department/createNewDepartment.json", department);
+    return response.data
+} 
