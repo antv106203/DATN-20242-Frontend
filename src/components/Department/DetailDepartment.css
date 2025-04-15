@@ -1,0 +1,117 @@
+.detail-department-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.detail-department-content-container{
+    display: flex;
+    flex-grow: 1;
+    background-color: #ebedea;
+    padding: 20px 25px 0px 25px;
+}
+.detail-department-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 40px;
+}
+.detail-department-infomation-general{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+}
+.detail-department-infomation-general-header{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px solid #d0d1d0;
+    padding: 15px 35px;
+    box-sizing: border-box;
+    color: #555353;
+}
+.detail-department-info{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 35px;
+    padding-top: 20px;
+    padding-right: 35px;
+    gap: 10px;
+}
+.detail-department-info input{
+    margin: 0px;
+    outline: none;
+    font-size: 16px;
+    border: 1.5px solid #b7beb4;
+    color: #161715;
+    width: 100%;
+    height: 40px;
+}
+.detail-department-info select{
+    margin: 0px;
+    outline: none;
+    font-size: 16px;
+    border: 1.5px solid #b7beb4;
+    color: #161715;
+    width: 100%;
+    height: 40px;
+}
+.detail-department-name{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.detail-department-name-label{
+    font-size: 16px;
+    font-weight: 595;
+    color: #161715;
+}
+.detail-department-list-staff{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #FFFFFF;
+}
+.detail-department-list-staff-content{
+    display: flex;
+    flex-direction: column;
+}
+.detail-department-list-staff-filter{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px 30px 20px 30px;
+    justify-content: space-between;
+}
+.detail-department-filter-user-name{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Montserrat', sans-serif;
+    width: 40%;
+}
+.detail-department-filter-user-name-input {
+    width: 100%;
+}
+.detail-department-filter-user-name-input input {
+    width: 100%;
+    outline: none;
+    margin: 0;
+    border: 1.5px solid #b7beb4;
+}
+.detail-department-filter-user-code{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Montserrat', sans-serif;
+    width: 40%;
+}
+.detail-department-filter-user-code-input{
+    width: 100%;
+}
+.detail-department-filter-user-code-input input {
+    width: 100%;
+    outline: none;
+    margin: 0;
+    border: 1.5px solid #b7beb4;
+}
