@@ -109,7 +109,7 @@ const ListDepartment = () =>{
                             </div>
                             <div className="listdepartment-room-content">
                                 {listRoom.map((room, index) => (
-                                <Room key={room._id} name={room.department_code} onClick={() => navigate(`/at/department/${room._id}`)}/>
+                                <Room key={room._id} name={room.department_name} onClick={() => navigate(`/at/department/${room._id}`)}/>
                                 ))}
                                 
                             </div>

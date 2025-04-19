@@ -17,6 +17,7 @@
     background-color: #FFFFFF;
     gap: 10px;
     flex-grow: 1;
+    
 }
 .liststaff-filter{
     display: flex;

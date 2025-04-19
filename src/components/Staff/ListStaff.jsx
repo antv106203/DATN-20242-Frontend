@@ -114,7 +114,6 @@ const ListStaff = () =>{
 
     const getListDepartment = async() =>{
             const result = await fetchListDepartment(null,"asc", null);
-            console.log(result);
             setListDepartment(result.data);
         }
 
