@@ -9,8 +9,11 @@ import IconPagination from "./IconPagination";
 import { deletePreStaff, fetchListStaff, restoreStaff } from "../../service/StaffAPI";
 import { notification } from "antd";
 import { fetchListDepartment } from "../../service/DepartmentAPI";
+import { useNavigate } from "react-router-dom";
 const departments = ["Phòng Nhân sự", "Phòng Kế toán", "Phòng Kỹ thuật"];
 const ListStaff = () =>{
+
+    const navigate = useNavigate();
 
     const [api, contextHolder] = notification.useNotification();
     const openNotificationWithIcon = (type, message) => {
@@ -26,7 +29,7 @@ const ListStaff = () =>{
     const [limit, setLimit] = useState(6);
     const [full_name, setFull_name] = useState(null);
     const [user_code, setUser_code] = useState(null);
-    const [order, setOrder] = useState("asc");
+    const [order, setOrder] = useState("desc");
     const [status, setStatus] = useState("ACTIVE")
     const [numberStaff, setNumberStaff] = useState(null);
     const [render, setRender] = useState(true);
@@ -188,7 +191,7 @@ const ListStaff = () =>{
                                 <div className="liststaff-tool-resset" onClick={handleRefreshFilter}>
                                     <FontAwesomeIcon icon={faArrowsRotate} />
                                 </div>
-                                <div className="liststaff-tool-create">
+                                <div className="liststaff-tool-create" onClick={() => navigate("/at/staff/create-staff")}>
                                     <FontAwesomeIcon icon={faSquarePlus} />
                                 </div>
                             </div>
