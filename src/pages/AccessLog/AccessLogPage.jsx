@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import ListAccessLog from '../../components/AccessLog/ListAccessLog'
+import { withAuthorization } from '../../hoc'
 
 const AccessLogPage = () =>{
     return(
@@ -11,4 +12,4 @@ const AccessLogPage = () =>{
     )
 }
 
-export default AccessLogPage
+export default withAuthorization(AccessLogPage, ["ADMIN", "GAURD"]);

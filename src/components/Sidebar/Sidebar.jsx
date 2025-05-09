@@ -20,7 +20,8 @@ const Sidebar = () =>{
             <SidebarMain bgColor={typeClass} isCollapsed={false} position='left'>
             <LogoSidebar
                 image='https://media2.giphy.com/media/eNAsjO55tPbgaor7ma/source.gif'
-                imageName='react logo'/>
+                imageName='react logo'
+            />
             <LogoSidebarText>AT GROUP</LogoSidebarText>
             {/* <DropdownItem
                 values={['First', 'Second', 'Third']}

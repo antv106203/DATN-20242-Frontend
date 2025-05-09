@@ -15,7 +15,7 @@
     flex-direction: row;
     width: 100%;
     gap: 40px;
-    height: 90%;
+    height: 88%;
 }
 .detail-department-infomation-general{
     width: 30%;
@@ -29,7 +29,7 @@
     flex-direction: row;
     align-items: center;
     border-bottom: 2px solid #d0d1d0;
-    padding: 15px 35px;
+    padding: 10px 35px;
     box-sizing: border-box;
     color: #555353;
 }
@@ -40,7 +40,7 @@
     padding-left: 35px;
     padding-top: 20px;
     padding-right: 35px;
-    gap: 10px;
+    gap: 5px;
 }
 .detail-department-info input{
     margin: 0px;

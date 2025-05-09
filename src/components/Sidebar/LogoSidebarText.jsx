@@ -1,7 +1,7 @@
 
 const LogoSidebarText = ({children, classes}) =>{
     return (
-        <h2 className={classes}>{children}</h2>
+        <h4 className={classes}>{children}</h4>
     )
 }
 

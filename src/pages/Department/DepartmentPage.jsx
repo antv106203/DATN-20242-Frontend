@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import ListDepartment from '../../components/Department/ListDepartment'
 import DetailDepartment from '../../components/Department/DetailDepartment'
+import { withAuthorization } from '../../hoc'
 
 const DepartmentPage = () =>{
     return(
@@ -13,4 +14,4 @@ const DepartmentPage = () =>{
     )
 }
 
-export default DepartmentPage
+export default withAuthorization(DepartmentPage, ["ADMIN", "GAURD"]);

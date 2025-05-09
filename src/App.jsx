@@ -8,6 +8,7 @@ import PrivateRoute from './components/PrivateRoute'
 import Layout from './layout/Layout'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UnauthorizedPage from './pages/UnauthorizedPage/UnauthorizedPage'
 
 const  App = () => {
 
@@ -32,6 +33,7 @@ const  App = () => {
         <Routes>
           <Route path="/" element={<Navigate to='/at/dashboard' />} />
           <Route path='/login' element = { <Login />}/>
+          <Route path='/unauthorized' element={<UnauthorizedPage />} />
           <Route element={<PrivateRoute isAuthenticated={isAuthenticated} dispatch={dispatch} />}>
             <Route path='/at/*' element={<Layout />} />
           </Route>

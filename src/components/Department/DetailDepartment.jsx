@@ -284,7 +284,7 @@ const DetailDepartment = () => {
                 <div className="detail-department-content">
                     <div className="detail-department-infomation-general">
                         <div className="detail-department-infomation-general-header">
-                            <h3>Thông tin chung</h3>
+                            <h4>Thông tin chung</h4>
                         </div>
                         <div className="detail-department-info">
                             <div className="detail-department-name">
@@ -347,7 +347,7 @@ const DetailDepartment = () => {
                     </div>
                     <div className="detail-department-list-staff">
                         <div className="detail-department-infomation-general-header">
-                            <h3>Danh sách nhân viên</h3>
+                            <h4>Danh sách nhân viên</h4>
                         </div>
                         <div className="detail-department-list-staff-content">
                             <div className="detail-department-list-staff-filter">
