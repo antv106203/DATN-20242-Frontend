@@ -10,18 +10,12 @@ import { deletePreStaff, fetchListStaff, restoreStaff } from "../../service/Staf
 import { notification } from "antd";
 import { fetchListDepartment } from "../../service/DepartmentAPI";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const departments = ["Phòng Nhân sự", "Phòng Kế toán", "Phòng Kỹ thuật"];
 const ListStaff = () =>{
 
     const navigate = useNavigate();
 
-    const [api, contextHolder] = notification.useNotification();
-    const openNotificationWithIcon = (type, message) => {
-        api[type]({
-            message: message,
-            description: message,
-        });
-    };
 
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1)
@@ -78,9 +72,9 @@ const ListStaff = () =>{
         const res = await deletePreStaff(_idUser);
     
         if (res.status_code === 200) {
-            openNotificationWithIcon("success", res.message);
+            toast.success(res.message);
         } else {
-            openNotificationWithIcon("error", res.message);
+            toast.error(res.message);
         }
     
         // Chờ 1 giây rồi render lại
@@ -92,9 +86,11 @@ const ListStaff = () =>{
         const res = await restoreStaff(_idUser);
     
         if (res.status_code === 200) {
-            openNotificationWithIcon("success", res.message);
+            // openNotificationWithIcon("success", res.message);
+            toast.success(res.message);
         } else {
-            openNotificationWithIcon("error", res.message);
+            // openNotificationWithIcon("error", res.message);
+            toast.error(res.message);
         }
     
         // Chờ 1 giây rồi render lại
@@ -129,7 +125,6 @@ const ListStaff = () =>{
     },[])
     return(
         <>
-            {contextHolder}
             <div className="liststaff-container">
                 <Title name={"Danh sách nhân viên"}/>
                 <div className="liststaff-content-container">

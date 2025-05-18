@@ -49,6 +49,10 @@ const Sidebar = () =>{
                 <Icon className="fa-regular fa-clock"/>
                 Lịch sử
             </Item>
+            <Item bgColor={typeClass} onClick={() => handleClick('/at/device')} isActive={currentPath.includes('/at/device')}>
+                <Icon className="fa-solid fa-satellite-dish"/>
+                Thiết bị
+            </Item>
             <Item bgColor={typeClass} onClick={() => handleClick('/at/account')} isActive={currentPath.includes('/at/account')}>
                 <Icon className="fa-regular fa-user"/>
                 Tài khoản

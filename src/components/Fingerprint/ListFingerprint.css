@@ -1,0 +1,95 @@
+.list-fingerprint-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #ebedea;
+    flex-grow: 1;
+}
+.list-fingerprint-container-content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+.list-fingerprint-toolbar{
+    display: flex;
+    flex-direction: row;
+    padding-left: 60px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 12%;
+    gap: 180px;
+    align-items: center;
+}
+.list-fingerprint-toolbar-create{
+    display: flex;
+    flex-direction: row;
+    background-color: #08a189;
+    box-sizing: border-box;
+    padding: 10px 15px 10px 15px;
+    gap: 5px;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+}
+.list-fingerprint-toolbar-create:hover{
+    cursor: pointer;
+}
+.list-fingerprint-toolbar-create:active{
+    cursor: pointer;
+    scale: 1.05;
+}
+.list-fingerprint-toolbar-filter {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 30px;
+}
+.list-fingerprint-toolbar-filter input{
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s, box-shadow 0.3s;
+    min-width: 160px;
+    margin: 0px;
+}
+.list-fingerprint-toolbar-filter select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s, box-shadow 0.3s;
+    min-width: 160px;
+}
+
+.list-fingerprint-toolbar-filter input:focus,
+.list-fingerprint-toolbar-filter select:focus {
+    border-color: #08a189;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+.list-fingerprint-toolbar-filter-button {
+    padding: 8px 16px;
+    background-color: #08a189;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.list-fingerprint-toolbar-filter-button:hover {
+  background-color: #167869;
+}
+.list-fingerprint-toolbar-filter-button:active {
+    scale: 1.05;
+}

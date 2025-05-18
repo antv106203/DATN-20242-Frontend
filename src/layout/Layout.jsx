@@ -7,6 +7,8 @@ import DepartmentPage from "../pages/Department/DepartmentPage";
 import StaffPage from "../pages/Staff/StaffPage";
 import AccessLogPage from "../pages/AccessLog/AccessLogPage";
 import AccountPage from "../pages/Account/AccountPage";
+import FingerprintPage from "../pages/Fingerprint/FingerprintPage";
+import DevicePage from "../pages/Device/DevicePage";
 
 const Layout = () =>{
     return(
@@ -20,6 +22,8 @@ const Layout = () =>{
                     <Route path="/staff/*"element = {<StaffPage />} />
                     <Route path="/history/*"element = {<AccessLogPage />} />
                     <Route path="/account"element = {< AccountPage/>} />
+                    <Route path="/fingerprint"element = {< FingerprintPage/>} />
+                    <Route path="/device"element = {< DevicePage/>} />
                 </Routes>
             </div>
         </div>

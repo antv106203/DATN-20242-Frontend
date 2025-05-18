@@ -10,16 +10,17 @@ import { notification} from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Login = () => {
 
 
-    const [api, contextHolder] = notification.useNotification();
-    const openNotificationWithIcon = (type, message) => {
-        api[type]({
-            message: message,
-            description: message,
-        });
-    };
+    // const [api, contextHolder] = notification.useNotification();
+    // const openNotificationWithIcon = (type, message) => {
+    //     api[type]({
+    //         message: message,
+    //         description: message,
+    //     });
+    // };
 
 
     const [ showPassword, setShowPassword ] = useState(false);
@@ -42,12 +43,12 @@ const Login = () => {
     const doLogin = async () =>{
 
             const res = await dispatch(login(email, password));
-            console.log("Login response:", res);
-    
             if (res.status_code === 200) {
-                openNotificationWithIcon("success", res.message);
+                // openNotificationWithIcon("success", res.message);
+                toast.success(res.message);
             } else {
-                openNotificationWithIcon("error", res.message || "Login failed");
+                // openNotificationWithIcon("error", res.message || "Login failed");
+                toast.error(res.message);
             }
     }
 
@@ -60,7 +61,6 @@ const Login = () => {
   
     return (
         <>
-            {contextHolder}
             <div className="login-main">
                 <div className="login-left">
                     <img src={Image} alt="" />

@@ -230,7 +230,7 @@ const ListAccessLog = () => {
 
     useEffect(() => {
         fetchListAccessLog()
-    }, [render])
+    }, [render, page])
 
     useEffect(() => {
         getListDepartment()
