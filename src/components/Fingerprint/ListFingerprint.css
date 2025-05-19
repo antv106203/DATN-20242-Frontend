@@ -88,8 +88,183 @@
 }
 
 .list-fingerprint-toolbar-filter-button:hover {
-  background-color: #167869;
+    background-color: #167869;
 }
 .list-fingerprint-toolbar-filter-button:active {
     scale: 1.05;
 }
+.list-fingerprint-table{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: #FFFFFF;
+    
+}
+.fingerprint-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    height: 85%;
+    overflow-y: auto;
+}
+
+.fingerprint-card {
+    perspective: 1000px;
+    height: 200px;
+    background-color: #f4f6fa; /* nhẹ nhàng, nổi trên nền trắng */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* tạo chiều sâu */
+    color: #333;
+}
+.fingerprint-card.active {
+    border:1px solid #22c55e; /* xanh lá */
+}
+
+.fingerprint-card.inactive {
+  border:1px solid #dc2626; /* đỏ */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    border-radius: 10px;
+}
+
+.fingerprint-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    color: #111827;
+    font-size: 0.8rem;
+}
+
+.card-front {
+    align-items: center;
+    text-align: center;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #f9fafb;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.fingerprint-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.card-front h4 {
+    margin: 4px 0 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.card-front p {
+    margin: 1px 0;
+    color: #4b5563;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+.status {
+    margin-top: 4px;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    border-radius: 999px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status.active {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.status.inactive {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.card-back button {
+    width: 80%;
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 4px auto;
+    display: block;
+}
+
+.card-back button:hover {
+    background-color: #2563eb;
+}
+
+/* Nút màu đỏ cho Xoá */
+.card-back button:nth-child(2) {
+    background-color: #ef4444;
+}
+
+.card-back button:nth-child(2):hover {
+    background-color: #b91c1c;
+}
+
+/* Nút màu xanh lá cho Bật lại */
+.card-back button:nth-child(3) {
+    background-color: #22c55e;
+}
+
+.card-back button:nth-child(3):hover {
+    background-color: #15803d;
+}
+.list-fingerprint-table-pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+    background-color: #FFFFFF;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.list-fingerprint-table-pagination-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.list-fingerprint-pagination-left-current-page{
+    display: flex;
+    align-items: center;
+    border: 1px solid #c0c4bc;
+    padding: 5px 15px 5px 15px;
+}
+
+

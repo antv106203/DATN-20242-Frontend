@@ -21,9 +21,9 @@ const Layout = () =>{
                     <Route path="/department/*"element = {<DepartmentPage />} />
                     <Route path="/staff/*"element = {<StaffPage />} />
                     <Route path="/history/*"element = {<AccessLogPage />} />
-                    <Route path="/account"element = {< AccountPage/>} />
-                    <Route path="/fingerprint"element = {< FingerprintPage/>} />
-                    <Route path="/device"element = {< DevicePage/>} />
+                    <Route path="/account/*"element = {< AccountPage/>} />
+                    <Route path="/fingerprint/*"element = {< FingerprintPage/>} />
+                    <Route path="/device/*"element = {< DevicePage/>} />
                 </Routes>
             </div>
         </div>

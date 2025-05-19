@@ -214,93 +214,93 @@ const ListAccount = () => {
                     <div className="list-account-table">
                         <table className="list-account">
                             <thead>
-                            <tr>
-                                <th>Tài khoản</th>
-                                <th>Email</th>
-                                <th>Vai trò</th>
-                                <th>Trạng thái</th>
-                                <th>Ngày tạo</th>
-                                <th>Ngày cập nhật</th>
-                                <th>Thao tác</th>
-                            </tr>
+                                <tr>
+                                    <th>Tài khoản</th>
+                                    <th>Email</th>
+                                    <th>Vai trò</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Ngày cập nhật</th>
+                                    <th>Thao tác</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            {listAccount.map((res, idx) => (
-                                <tr key={idx}>
-                                    <td>
-                                        <div className="list-account-account-icon">
-                                            <FontAwesomeIcon icon={faCircleUser} />
-                                        </div>
-                                    </td>
-                                    <td>{res.email}</td>
-                                    {
-                                        res.role === "ADMIN" ? (
-                                            <td className="list-account-role-admin">Quản lý</td>
-                                        ) : res.role === "GAURD" ? (
-                                            <td className="list-account-role-guard">Nhân viên</td>
-                                        ) : null
-                                    }
-                                    {
-                                        res.status === "ACTIVE" ? (
-                                            <td>
-                                                <div className="list-account-status-active">
-                                                    Kích hoạt
-                                                </div>
-                                            </td>
-                                        ) : res.status === "INACTIVE" ? (
-                                            <td>
-                                                <div className="list-account-status-inactive">
-                                                    Đã khóa
-                                                </div>
-                                            </td>
-                                        ) : null
-                                    }
-                                    <td>{formatAccessTime(res.createdAt)}</td>
-                                    <td>{formatAccessTime(res.updatedAt)}</td>
-                                    {
-                                        res.role === "ADMIN" ? (
-                                            <td>
-                                                {null}
-                                            </td>
-                                        ) : (
-                                            // <td>
-                                            //     <button className="edit-btn">✎</button>
-                                            //     <button className="delete-btn">🗑️</button>
-                                            // </td>
+                                {listAccount.map((res, idx) => (
+                                    <tr key={idx}>
+                                        <td>
+                                            <div className="list-account-account-icon">
+                                                <FontAwesomeIcon icon={faCircleUser} />
+                                            </div>
+                                        </td>
+                                        <td>{res.email}</td>
+                                        {
+                                            res.role === "ADMIN" ? (
+                                                <td className="list-account-role-admin">Quản lý</td>
+                                            ) : res.role === "GAURD" ? (
+                                                <td className="list-account-role-guard">Nhân viên</td>
+                                            ) : null
+                                        }
+                                        {
                                             res.status === "ACTIVE" ? (
                                                 <td>
-                                                    <div className="list-account-btn">
-                                                        <div className="list-account-btn-block" onClick={() => handleBlockAccount(res.email)}>
-                                                            <FontAwesomeIcon icon={faLock} />
-                                                        </div>
-                                                        <div className="list-account-btn-delete" onClick={() => handleDeleteClick(res.email)}>
-                                                            <FontAwesomeIcon icon={faTrash} />
-                                                        </div>
-                                                        <div className="list-account-btn-reset-password" onClick={() => handleResetPasswordByAdmin(res.email)}>
-                                                            <FontAwesomeIcon icon={faArrowsRotate} />
-                                                        </div>
+                                                    <div className="list-account-status-active">
+                                                        Kích hoạt
                                                     </div>
                                                 </td>
-                                            ) :(
+                                            ) : res.status === "INACTIVE" ? (
                                                 <td>
-                                                    <div className="list-account-btn">
-                                                        <div className="list-account-btn-unblock" onClick={() => handleUnBlockAccount(res.email)}>
-                                                            <FontAwesomeIcon icon={faLockOpen} />
-                                                        </div>
-                                                        <div className="list-account-btn-delete" onClick={() => handleDeleteClick(res.email)}>
-                                                            <FontAwesomeIcon icon={faTrash} />
-                                                        </div>
-                                                        <div className="list-account-btn-reset-password" onClick={() => handleResetPasswordByAdmin(res.email)}>
-                                                            <FontAwesomeIcon icon={faArrowsRotate} />
-                                                        </div>
+                                                    <div className="list-account-status-inactive">
+                                                        Đã khóa
                                                     </div>
                                                 </td>
-                                            )
+                                            ) : null
+                                        }
+                                        <td>{formatAccessTime(res.createdAt)}</td>
+                                        <td>{formatAccessTime(res.updatedAt)}</td>
+                                        {
+                                            res.role === "ADMIN" ? (
+                                                <td>
+                                                    {null}
+                                                </td>
+                                            ) : (
+                                                // <td>
+                                                //     <button className="edit-btn">✎</button>
+                                                //     <button className="delete-btn">🗑️</button>
+                                                // </td>
+                                                res.status === "ACTIVE" ? (
+                                                    <td>
+                                                        <div className="list-account-btn">
+                                                            <div className="list-account-btn-block" onClick={() => handleBlockAccount(res.email)}>
+                                                                <FontAwesomeIcon icon={faLock} />
+                                                            </div>
+                                                            <div className="list-account-btn-delete" onClick={() => handleDeleteClick(res.email)}>
+                                                                <FontAwesomeIcon icon={faTrash} />
+                                                            </div>
+                                                            <div className="list-account-btn-reset-password" onClick={() => handleResetPasswordByAdmin(res.email)}>
+                                                                <FontAwesomeIcon icon={faArrowsRotate} />
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                ) :(
+                                                    <td>
+                                                        <div className="list-account-btn">
+                                                            <div className="list-account-btn-unblock" onClick={() => handleUnBlockAccount(res.email)}>
+                                                                <FontAwesomeIcon icon={faLockOpen} />
+                                                            </div>
+                                                            <div className="list-account-btn-delete" onClick={() => handleDeleteClick(res.email)}>
+                                                                <FontAwesomeIcon icon={faTrash} />
+                                                            </div>
+                                                            <div className="list-account-btn-reset-password" onClick={() => handleResetPasswordByAdmin(res.email)}>
+                                                                <FontAwesomeIcon icon={faArrowsRotate} />
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                )
 
-                                        )
-                                    }
-                                </tr>
-                            ))}
+                                            )
+                                        }
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
