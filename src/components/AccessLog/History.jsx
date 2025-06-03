@@ -23,10 +23,10 @@ import { formatAccessTime } from "../../utils/DateUtils"
 */ 
 const History = ({accesslog}) => {
     return(
-        <div className={`history-container ${accesslog?.result === "SUCCESS" ? "success-border" : "error-border"}`}>
+        <div className={`history-container ${accesslog?.result === "success" ? "success-border" : "error-border"}`}>
             <div className="history-avatar">
                 {
-                    accesslog?.user_id?.avatar !== "" ?
+                    accesslog?.user_id ?
                     (<img src={accesslog?.user_id?.avatar}/>)
                     :
                     (<img src={avataDefault}/>)
@@ -46,7 +46,7 @@ const History = ({accesslog}) => {
                     {formatAccessTime(accesslog?.access_time)}
                 </div>
                 {
-                    accesslog?.result === "SUCCESS" ?
+                    accesslog?.result === "success" ?
                     (
                         <div style={{color: "#00a5a5"}}>
                             Thành công

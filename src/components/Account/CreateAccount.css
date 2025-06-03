@@ -60,7 +60,7 @@
 
 .popup-create-account-popup-field input:focus,
 .popup-create-account-popup-field select:focus {
-    border-color: #007bff;
+    border-color: #08a189;
     outline: none;
 }
 
@@ -89,10 +89,10 @@
 }
 
 .popup-create-account-btn-confirm {
-    background: #007bff;
+    background: #08a189;
     color: white;
 }
 
 .popup-create-account-btn-confirm:hover {
-    background: #0056b3;
+    background: #04584c;
 }

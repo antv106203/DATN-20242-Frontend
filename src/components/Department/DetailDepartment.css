@@ -7,248 +7,203 @@
     display: flex;
     flex-grow: 1;
     background-color: #ebedea;
-    padding: 20px 25px 0px 25px;
+    padding: 10px 40px 10px 60px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-department-info-section{
+    background-color: #fff;
+    padding: 24px;
+    padding-top: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+    display: flex;
     flex-direction: column;
 }
-.detail-department-content{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 40px;
-    height: 88%;
-}
-.detail-department-infomation-general{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFFFFF;
-}
-.detail-department-infomation-general-header{
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 2px solid #d0d1d0;
-    padding: 10px 35px;
-    box-sizing: border-box;
-    color: #555353;
-}
-.detail-department-info{
-    display: flex;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    padding-left: 35px;
-    padding-top: 20px;
-    padding-right: 35px;
-    gap: 5px;
-}
-.detail-department-info input{
-    margin: 0px;
-    outline: none;
-    font-size: 16px;
-    border: 1.5px solid #b7beb4;
-    color: #161715;
-    width: 100%;
-    height: 40px;
-}
-.detail-department-info select{
-    margin: 0px;
-    outline: none;
-    font-size: 16px;
-    border: 1.5px solid #b7beb4;
-    color: #161715;
-    width: 100%;
-    height: 40px;
-    padding-left: 15px;
-}
-.detail-department-name{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.detail-department-name-label{
-    font-size: 16px;
-    font-weight: 595;
-    color: #161715;
-}
-.detail-department-list-staff{
+.detail-department-list-staff-section {
+    background-color: #fff;
+    padding: 24px;
+    padding-top: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background-color: #FFFFFF;
 }
-.detail-department-list-staff-content{
+
+/* Header có button */
+.detail-department-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.detail-department-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* Nút cập nhật */
+.detail-department-header-edit-button {
+    background-color: #08a189;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.detail-department-header-edit-button:hover {
+    background-color: #0d7969;
+}
+
+/* Thông tin hiển thị 2 cột */
+.detail-department-info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+}
+
+.detail-department-info-container p {
+    margin: 0;
+    font-size: 15px;
+    color: #444;
+}
+
+.detail-department-info-container p strong {
+    color: #000;
+}
+
+/* Table sinh viên */
+
+.detail-department-list-staff {
     display: flex;
     flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    flex-grow: 1;
 }
-.detail-department-list-staff-filter{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 10px 30px 10px 30px;
-    justify-content: space-between;
-}
-.detail-department-filter-user-name{
-    display: flex;
-    flex-direction: row;
-    font-family: 'Montserrat', sans-serif;
-    width: 40%;
-}
-.detail-department-filter-user-name-input {
-    width: 100%;
-}
-.detail-department-filter-user-name-input input {
-    width: 100%;
-    outline: none;
-    margin: 0;
-    border: 1.5px solid #b7beb4;
-}
-.detail-department-filter-user-code{
-    display: flex;
-    flex-direction: row;
-    font-family: 'Montserrat', sans-serif;
-    width: 40%;
-}
-.detail-department-filter-user-code-input{
-    width: 100%;
-}
-.detail-department-filter-user-code-input input {
-    width: 100%;
-    outline: none;
-    margin: 0;
-    border: 1.5px solid #b7beb4;
-}
-.detail-department-list-staff-table{
-    width: 100%;
-    display: flex;
-    padding: 5px 30px 5px 30px;
-    /* height: 375px; */
+
+.detail-department-list-staff-table-wrapper {
+    height: 90%;
     overflow-y: auto;
 }
-.student-table1 {
+.detail-department-list-staff-table {
+    border-collapse: collapse;
+}
+
+.detail-department-list-staff-table th,
+.detail-department-list-staff-table td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+.detail-department-list-staff-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+}
+
+.detail-department-list-staff-table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+.detail-department-list-staff-table-button-info {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.detail-department-list-staff-table-button-info:hover {
+    background-color: #1e7e34;
+}
+.detail-department-list-staff-table-button-delete {
+    background-color: #eb3f3f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.detail-department-list-staff-table-button-delete:hover {
+    background-color: #a02323;
+}
+.detail-list-staff-table-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+.detail-department-list-staff-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    flex-grow: 1;
 }
-  
-.student-table1 th{
-    border: 1px solid #ccc;
-    padding: 10px 20px;
-    text-align: center;
-}
-.student-table1 td {
-    border: 1px solid #ccc;
-    padding: 5px 20px 5px 20px;
-    text-align: center;         /* Canh giữa ngang */
-    vertical-align: middle;     /* Canh giữa dọc */
+.detail-list-staff-button-wrap{
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
 }
 
-.student-tabl1 thead {
-    background-color: #547794;
-    color: white;
+.detail-list-staff-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    flex-wrap: wrap;
 }
 
-.student-table1 tbody tr:nth-child(even) {
-background-color: #f9f9f9;
+.detail-list-staff-pagination-summary {
+  font-weight: 500;
 }
 
-.student-table1 .action {
+.detail-list-staff-pagination-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.detail-list-staff-pagination-controls button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     border: none;
-    padding: 6px;
-    margin: 0 2px;
-    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.student-table1 .action.reset {
-    border: 2px solid #00a5a5;
-    background-color: white;
-    color: #00a5a5;
+.detail-list-staff-pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
 }
 
-.student-table1 .action.blue {
-    background-color: #0072c6;
+.detail-list-staff-pagination-current {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #08a189; /* đỏ đậm như trong ảnh */
     color: white;
-}
-
-.student-table1 .action.orange {
-    background-color: #f9a825;
-    color: white;
-}
-
-.student-table1 .action.gray {
-    background-color: #cfcfcf;
-    color: white;
-}
-.liststaff-table-content {
-    width: 100%;
-    overflow-x: auto; /* Cho scroll ngang nếu bảng quá dài */
-}
-.detail-department-content-tool{
-    flex-grow: 1;
     display: flex;
-    flex-direction: row;
-    gap: 50px;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    align-items: center;
     justify-content: center;
-    box-sizing: border-box;
-    width: 100%;
+    font-weight: bold;
 }
-.detail-department-content-tool-cancel{
-    border: 2px solid #e85757;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-sizing: border-box; 
-    padding: 5px 20px;
-    gap: 10px;
-    background-color: #FFFFFF;
-    color: #e85757;
-    font-family: 'Montserrat', sans-serif;
-}
-.detail-department-content-tool-cancel:hover{
-    cursor: pointer;
-}
-.detail-department-content-tool-cancel:active{
-    cursor: pointer;
-    border: 2px solid #e85757;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-sizing: border-box; 
-    padding: 5px 20px;
-    gap: 10px;
-    background-color: #e85757;
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-}
-.detail-department-content-tool-update{
-    border: 2px solid #08a189;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-sizing: border-box; 
-    padding: 5px 20px;
-    gap: 10px;
-    background-color: #08a189;
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-}
-.detail-department-content-tool-update:hover{
-    cursor: pointer;
-}
-.detail-department-content-tool-update:active{
-    cursor: pointer;
-    border: 2px solid #08a189;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-sizing: border-box; 
-    padding: 5px 20px;
-    gap: 10px;
-    background-color: #FFFFFF;
-    color: #08a189;
-    font-family: 'Montserrat', sans-serif;
-}
+

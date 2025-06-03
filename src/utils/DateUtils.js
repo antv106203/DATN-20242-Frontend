@@ -14,3 +14,16 @@ export const formatAccessTime = (isoTime) => {
     return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
 }
 
+export const formatDateOnly = (isoTime) => {
+    const date = new Date(isoTime);
+
+    const pad = (num) => String(num).padStart(2, '0');
+
+    const day = pad(date.getDate());
+    const month = pad(date.getMonth() + 1); // tháng bắt đầu từ 0
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+};
+
+

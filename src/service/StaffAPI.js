@@ -37,3 +37,25 @@ export const createNewUser = async(userData) => {
 
     return res.data;
 }
+
+export const updateStaff = async (formData, id) => {
+    const res = await axiosInstance.put("/user/updateUser.json", formData, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        params: {
+            id: id,
+        },
+    });
+    return res.data;
+};
+
+export const getDetailStaff = async(_idUser) => {
+    const res = await axiosInstance.post("/user/detailUser.json", {_idUser});
+    return res.data;
+}
+
+export const deleteStaff = async (_idUser) => {
+    const res = await axiosInstance.post("/user/delereSec.json", {_idUser});
+    return res.data;
+}

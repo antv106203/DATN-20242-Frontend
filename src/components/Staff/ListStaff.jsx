@@ -6,7 +6,7 @@ import {faArrowLeft, faArrowRight, faArrowsRotate, faBackward, faCircleInfo, faF
 import IconTool from "./IconTool";
 import { useEffect, useState } from "react";
 import IconPagination from "./IconPagination";
-import { deletePreStaff, fetchListStaff, restoreStaff } from "../../service/StaffAPI";
+import { deletePreStaff, deleteStaff, fetchListStaff, restoreStaff } from "../../service/StaffAPI";
 import { notification } from "antd";
 import { fetchListDepartment } from "../../service/DepartmentAPI";
 import { useNavigate } from "react-router-dom";
@@ -90,6 +90,21 @@ const ListStaff = () =>{
             toast.success(res.message);
         } else {
             // openNotificationWithIcon("error", res.message);
+            toast.error(res.message);
+        }
+    
+        // Chờ 1 giây rồi render lại
+        setTimeout(() => {
+            setRender(prev => !prev);
+        }, 1000); 
+    };
+
+    const handleDeleteStaff = async (_idUser) => {
+        const res = await deleteStaff(_idUser);
+    
+        if (res.status_code === 200) {
+            toast.success(res.message);
+        } else {
             toast.error(res.message);
         }
     
@@ -232,13 +247,13 @@ const ListStaff = () =>{
                                                             {
                                                                 status === "ACTIVE" ? (
                                                                     <>
-                                                                        <IconTool color={"#00b894"} icon={faCircleInfo} /> 
+                                                                        <IconTool color={"#00b894"} icon={faCircleInfo} onClick={() => navigate(`/at/staff/${staff._id}`)}/> 
                                                                         <IconTool color={"#d63031"} icon={faTrash} onClick={() => handleDeletePreStaff(staff._id)}/> 
                                                                     </>
                                                                 ) : (
                                                                     <>
                                                                         <IconTool color={"#0984e3"} icon={faRetweet} onClick={() => handleRestoreStaff(staff._id)}/>
-                                                                        <IconTool color={"#d63031"} icon={faTrash} />
+                                                                        <IconTool color={"#d63031"} icon={faTrash} onClick={() => handleDeleteStaff(staff._id)}/>
                                                                     </>
                                                                 )
                                                             }

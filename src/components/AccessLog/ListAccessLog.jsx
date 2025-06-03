@@ -275,8 +275,8 @@ const ListAccessLog = () => {
                             <div className="list-accesslog-filter-status-select">
                                 <select value={result} onChange={(e) => setResult(e.target.value)}>
                                     <option value={null}>Tất cả</option>
-                                    <option value="SUCCESS">Thành công</option>
-                                    <option value="FAILURE">Lỗi</option>
+                                    <option value="success">Thành công</option>
+                                    <option value="failed">Lỗi</option>
                                 </select>
                             </div>
                         </div>

@@ -1,232 +1,105 @@
+// import "./DetailDepartment.css"
 import "./DetailDepartment.css"
 import Title from "../Header/Title"
 import IconTool from "../Staff/IconTool";
 import { faArrowLeft, faArrowRight, faBackward, faCircleInfo, faForward, faPen, faRetweet, faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { use, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchListStaff } from "../../service/StaffAPI";
+import { deletePreStaff,fetchListStaff } from "../../service/StaffAPI";
 import IconPagination from "../Staff/IconPagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getDetailDepartment, updateDepartment } from "../../service/DepartmentAPI";
 import { formatAccessTime } from "../../utils/DateUtils";
 import { toast } from "react-toastify";
-
-const list1staff = [
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    },
-    {
-        avatar: "",
-        createdAt : "2025-03-12T18:49:02.853Z",
-        created_at : "2025-03-12T18:49:02.849Z",
-        department_id : {_id: '67cf07c32739a672b5291121', department_name: 'Giám đôc', total_member: -5, department_code: 'DRT', status: 'ACTIVE'},
-        email : "val12345@gmail.com",
-        full_name : "Valverde1",
-        status : "ACTIVE",
-        updatedAt : "2025-04-11T18:24:39.146Z",
-        updated_at : "2025-03-12T18:49:02.849Z",
-        user_code : "NVMKT-02",
-        user_id : 2
-    }
-]
+import { Pagination } from "antd";
+import Loading from "../Loading/Loading";
+import PopupUpdateDepartment from "./PopupUpdateDepartment";
 
 const DetailDepartment = () => {
 
     const navigate = useNavigate();
     const {_id} = useParams();
     const [status, setStatus] = useState("ACTIVE")
+    const [loading, setLoading] = useState(false);
 
+
+
+    // list staff
     const [listStaff, setListStaff] = useState([]);
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(5);
+    const [limit, setLimit] = useState(4);
     const [totalPage, setTotalPage] = useState(null);
+    const [currentPage, setCurrentPage] = useState(null);
     const [order, setOrder] = useState("asc");
     const [full_name, setFullName] = useState(null);
-    const [user_code, setUserCode] = useState(null);    
+    const [user_code, setUserCode] = useState(null);  
+    const [totalStaff, setTotalStaff] = useState(null)  
     const handlePrevPage = () => {
         if (page > 1) setPage(page - 1);
     };
+
+    const handlePageChange = (pagea) => {
+        setPage(pagea)
+    }
+
+    const handleFirstPage = () => {
+        setPage(1);
+    }
+    const handleLastPage = () => {
+        setPage(totalPage);
+    }
+
+    const [departmentDetail, setDetailDepartment] = useState({})
     
     const handleNextPage = () => {
         if (page < totalPage) setPage(page + 1);
     };
-    
-    const handleGoToFirstPage = () => {
-        setPage(1);
-    };
-    
-    const handleGoToLastPage = () => {
-        setPage(totalPage);
-    };
 
+    const getListStaff = async() =>{
+        setLoading(true);
+        try {
+            const result = await fetchListStaff(_id, page, limit, full_name, user_code, order, status);
+            if(result.status_code === 200){
+                setListStaff(result.data);
+                setPage(result.pagination.page);
+                setTotalPage(result.pagination.totalPages);
+                setTotalStaff(result.pagination.total);
+                setCurrentPage(result.pagination.page)
+            }
+            else{
+                setLoading(false);
+                toast.error(res.message);
+            }
+            
+        } catch (error) {
+            setLoading(false);
+            toast.error(`Lỗi không xác định: ${error}`)
+        } finally{
+            setLoading(false);
+        }
+    }
+
+    const handleDeleteStaff = async(id) => {
+        setLoading(true);
+        try {
+            const res = await deletePreStaff(id)
+            if(res.status_code === 200){
+                toast.success(res.message);
+                getListStaff();
+            }
+            else {
+                setLoading(false);
+                toast.error(res.message);
+            }
+        } catch (error) {
+            setLoading(false);
+            toast.error(`Lỗi không xác định: ${error}`)
+        }
+        finally{
+            setLoading(false)
+        }
+    }
     // detail
-
     const [floor, setFloor] = useState("");
     const [department_name, setDepartmentName] = useState(null);
     const [department_code, setDepartmentCode] = useState(null);
@@ -234,39 +107,62 @@ const DetailDepartment = () => {
     const [created_at, setCreatedAt] = useState(null);
     const [updated_at, setUpdatedAt] = useState(null);
 
+    // detailPopup
 
-    const handleUpdateDepartment = async () => {
-        const department = {   
-            department_name: department_name,
-            department_code:department_code,
-            floor: floor,
-        };
-        const result = await updateDepartment(_id, department);
-        console.log(result);
-        if(result.status_code === 200){ 
-            toast.success(result.message)
-        }
-        else if(result.status_code === 400){
-            toast.error(result.message)
-        }
-    }
-    const getListStaff = async() =>{
-        const result = await fetchListStaff(_id, page, limit, full_name, user_code, order, status);
-        setListStaff(result.data);
-        setPage(result.pagination.page);
-        setTotalPage(result.pagination.totalPages);
-    }
+    const [showPopupUpdateDepartment, setShowPopupUpdateDepartment] = useState(false);
+
+
 
     const fetchDetailDepartment = async() => {
-        const result = await getDetailDepartment(_id);
-        console.log(result.data.floor)
-        setFloor(result?.data?.floor);
-        setDepartmentName(result.data.department_name);
-        setDepartmentCode(result.data.department_code);
-        setTotalMember(result.data.total_member);
-        setCreatedAt(result.data.createdAt);
-        setUpdatedAt(result.data.updatedAt);
-    
+        setLoading(true);
+        try {
+            const result = await getDetailDepartment(_id);
+            if(result.status_code == 200){
+                setDetailDepartment(result.data);
+                setFloor(result?.data?.floor);
+                setDepartmentName(result.data.department_name);
+                setDepartmentCode(result.data.department_code);
+                setTotalMember(result.data.total_member);
+                setCreatedAt(result.data.createdAt);
+                setUpdatedAt(result.data.updatedAt);
+            }
+
+            else {
+                setLoading(false);
+                toast.error(res.message);
+            }
+        } catch (error) {
+                setLoading(false);
+                toast.error(`Lỗi không xác định: ${error}`);
+        }
+        finally{
+            setLoading(false)
+        }
+    }
+
+    const handleUpdateDepartment = async (id_i ,name, code, fl) => {
+        setLoading(true)
+        try {
+            const department = {   
+                department_name: name,
+                department_code:code,
+                floor: fl,
+            };
+            const result = await updateDepartment(id_i, department);
+            if(result.status_code === 200){ 
+                toast.success(result.message)
+                fetchDetailDepartment();
+            }
+            else{
+                setLoading(false)
+                toast.error(result.message);
+            }
+        } catch (error) {
+            setLoading(false);
+            toast.error(`Lỗi không xác định: ${error}`);
+        } finally{
+            setLoading(false)
+        }
     }
 
     useEffect(() => {
@@ -276,10 +172,11 @@ const DetailDepartment = () => {
     useEffect(() => {
         getListStaff();
     }, [page, limit, full_name, user_code]);
-    console.log(floor)
+    console.log(currentPage)
+    /*
     return(
         <div className="detail-department-container">
-            <Title name={"Thông tin phòng ban"} />
+            <Title name={"Thông tin phòng ban"} exit={true} onExit={() => navigate("/at/department")}/>
             <div className="detail-department-content-container">
                 <div className="detail-department-content">
                     <div className="detail-department-infomation-general">
@@ -366,7 +263,6 @@ const DetailDepartment = () => {
                                 <table className="student-table">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
                                             <th>Mã nhân viên</th>
                                             <th>Họ và Tên</th>
                                             <th>Email</th>
@@ -376,7 +272,6 @@ const DetailDepartment = () => {
                                     <tbody className="student-table-body">
                                         {listStaff.map((staff, index) => (
                                             <tr key={staff?._id || index}>
-                                                <td>{index + 1}</td>
                                                 <td>{staff?.user_code}</td>
                                                 <td>{staff?.full_name}</td>
                                                 <td>{staff?.email}</td>
@@ -443,6 +338,96 @@ const DetailDepartment = () => {
             </div>
         </div>
     )
+        */
+
+    return(
+        <>  
+            {loading && <Loading />}
+            {
+                showPopupUpdateDepartment && 
+                <PopupUpdateDepartment
+                    onClose={() => setShowPopupUpdateDepartment(false)}
+                    department={departmentDetail}
+                    onUpdate={handleUpdateDepartment}
+                />
+            }
+            <div className="detail-department-container">
+                <Title name={"Thông tin phòng ban"} exit={true} onExit={() => navigate("/at/department")}/>
+                <div className="detail-department-content-container">
+                    <div className="detail-department-info-section">
+                        <div className="detail-department-header">
+                            <h3>Thông tin chung</h3>
+                            <button className="detail-department-header-edit-button" onClick={() => setShowPopupUpdateDepartment(true)}>Cập nhật</button>
+                        </div>
+                        <div className="detail-department-info-container">
+                            <p><strong>Tầng:</strong> {departmentDetail?.floor}</p>
+                            <p><strong>Tên phòng:</strong> {departmentDetail?.department_name}</p>
+                            <p><strong>Mã phòng:</strong> {departmentDetail?.department_code}</p>
+                            <p><strong>Tổng số nhân viên:</strong> {departmentDetail?.total_member}</p>
+                        </div>
+                    </div>
+                    <div className="detail-department-list-staff-section">
+                        <div className="detail-department-header">
+                            <h3>Danh sách sinh viên</h3>
+                        </div>
+                        <div className = "detail-department-list-staff">
+                            <div className="detail-department-list-staff-table-wrapper">
+                                <table className="detail-department-list-staff-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ảnh</th>
+                                            <th>Mã nhân viên</th>
+                                            <th>Họ và Tên</th>
+                                            <th>Email</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {listStaff.map((staff, index) => (
+                                            <tr key={staff?._id}>
+                                                <td>
+                                                    <img
+                                                        src={staff?.avatar}
+                                                        alt="Avatar"
+                                                        className="detail-list-staff-table-avatar"
+                                                    />
+                                                </td>
+                                                <td>{staff?.user_code}</td>
+                                                <td>{staff?.full_name}</td>
+                                                <td>{staff?.email}</td>
+                                                <td>
+                                                    <div className= "detail-list-staff-button-wrap">
+                                                        <button className="detail-department-list-staff-table-button-info" onClick={() => navigate(`/at/staff/${staff._id}`)}>Xem</button>
+                                                        <button className="detail-department-list-staff-table-button-delete" onClick={() => handleDeleteStaff(staff._id)}>Xóa</button>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div className="detail-list-staff-pagination">
+                                <div className="detail-list-staff-pagination-summary">
+                                    Tổng {totalStaff} nhân viên
+                                </div>
+                                <div className="detail-list-staff-pagination-controls">
+                                    <button onClick={handleFirstPage} disabled={currentPage === 1}>&laquo;</button>
+                                    <button onClick={handlePrevPage} disabled={currentPage === 1}>&lsaquo;</button>
+
+                                    <span className="detail-list-staff-pagination-current">{currentPage}</span>
+
+                                    <button onClick={handleNextPage} disabled={currentPage === totalPage}>&rsaquo;</button>
+                                    <button onClick={handleLastPage} disabled={currentPage === totalPage}>&raquo;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default DetailDepartment
+

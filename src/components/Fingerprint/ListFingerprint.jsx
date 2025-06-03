@@ -15,6 +15,7 @@ import PopupFingerprintDetail from "./PopupFingerprintDetail";
 import PopupEnableFingerprint from "./PopupEnableFingerprint";
 import PopupConfirmDeleteFingerprint from "./PopupConfirmDeleteFingerprint";
 
+
 const ListFingerprint = () => {
 
     const [loading, setLoading] = useState(false)
