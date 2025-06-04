@@ -1,144 +1,120 @@
+/* RESET & BASE SETUP */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
-.login-main{
-    display: flex;
-}
-  
-.login-left{
-    flex-grow: 1;
-    height: 100vh;
-    background-color: #E9E9E9;
 
+html, body {
+    height: 100%;
+    overflow: hidden; /* Xoá thanh cuộn dọc */
+}
+
+/* PAGE BACKGROUND */
+.login-page {
+    width: 100vw;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80')
+        no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-left img{
-    width: 400px;
-}
-
-.login-right{
-
-    height: 100vh;
-    flex-grow: 1;
-}
-
-.login-right-container{
-    height: 100%;
-    width: 80%;
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
-.login-right form{
-    display: flex;
-    flex-direction: column;
-}
-
-.login-logo{
-    align-self: center;
-    padding-top: 50px;
-}
-
-.login-center{
-    margin: auto 0;
-}
-
-.login-logo img{
-    width: 50px;
-}
-
-.login-center h2{
-    font-size: 2rem;
-}
-
-.login-center{
-    text-align: center;
-}
-
-.login-center p{
-    font-weight: 400;
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-}
-
-form input[type='email'],
-form input[type='password'],
-form input[type='text']
-{
+/* LOGIN FORM BOX */
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
     width: 100%;
-    padding: 16px;
-    margin-bottom: 16px;
-    border: 0px;
-    border-bottom: 1px solid black;
-    outline: none;
-    box-sizing: border-box;
-    font-size: 16px; 
+    max-width: 400px;
+    box-shadow: 0 8px 25px rgba(0, 128, 0, 0.2);
+    animation: fadeIn 0.4s ease;
 }
 
-.pass-input-div{
+/* TEXT STYLES */
+.login-title {
+    font-size: 2rem;
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-subtitle {
+    color: #388e3c;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* FORM INPUTS */
+.login-form input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+    background: #f1f8e9;
+    font-size: 1rem;
+    color: #2e7d32;
+    transition: all 0.3s ease;
+}
+
+.login-form input::placeholder {
+    color: #81c784;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #66bb6a;
+    box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+}
+
+/* PASSWORD FIELD WITH ICON */
+.password-wrapper {
     position: relative;
 }
 
-.pass-input-div svg{
-    font-size: 20px;
+.password-wrapper input {
+    padding-right: 44px; /* chừa chỗ cho icon mắt */
+}
+
+.toggle-password {
     position: absolute;
-    right: 10px;
-    bottom: 35px;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
-    outline: none;
+    font-size: 1.2rem;
+    color: #2e7d32;
+    user-select: none;
 }
 
-form button[type='button'] {
+/* BUTTON STYLE */
+.login-form button {
     width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 30px;
-    font-weight: 600;
-}
-
-.login-center-buttons{
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-
-.login-center-buttons button:nth-child(1){
-    background-color: black;
+    padding: 14px;
+    background: #43a047;
     color: white;
-    border: 3px solid black;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.login-center-buttons button:nth-child(1):hover{
-    color: #333;
-    background-color: white;
+.login-form button:hover {
+    background: #2e7d32;
 }
 
-.login-center-buttons button:nth-child(2){
-    background-color: #F0F0F0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 10px;
-}
-
-.login-center-buttons button:nth-child(2) img{
-    width: 30px;
-}
-
-.login-center-buttons button:nth-child(2):hover{
-    background-color: #c4c4c457;
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
