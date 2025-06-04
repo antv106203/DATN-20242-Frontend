@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UnauthorizedPage from './pages/UnauthorizedPage/UnauthorizedPage'
 import Login from './pages/Login/Login'
+import RoomManager from './components/Department/Roommanager'
 
 const  App = () => {
 

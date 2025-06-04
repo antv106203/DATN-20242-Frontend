@@ -20,29 +20,29 @@ const PopupUpdateDepartment = ({onClose, department, onUpdate }) => {
                 <h2>Thông tin phòng ban</h2>
 
                 <div className="popup-update-department-form">
-                <label>Tầng:</label>
-                <select 
-                    value={floor}
-                    onChange={(e) => setFloor(e.target.value)}
-                >
-                    {[1, 2, 3, 4, 5, 6].map((f) => (
-                    <option key={f} value={`Tầng ${f}`}>Tầng {f}</option>
-                    ))}
-                </select>
+                    <label>Tầng:</label>
+                    <select 
+                        value={floor}
+                        onChange={(e) => setFloor(e.target.value)}
+                    >
+                        {[1, 2, 3, 4, 5, 6].map((f) => (
+                        <option key={f} value={`Tầng ${f}`}>Tầng {f}</option>
+                        ))}
+                    </select>
 
-                <label>Tên phòng:</label>
-                <input
-                    type="text"
-                    value={department_name}
-                    onChange={(e) => setDepartmentName(e.target.value)}
-                />
+                    <label>Tên phòng:</label>
+                    <input
+                        type="text"
+                        value={department_name}
+                        onChange={(e) => setDepartmentName(e.target.value)}
+                    />
 
-                <label>Mã phòng:</label>
-                <input
-                    type="text"
-                    value={department_code}
-                    onChange={(e) => setDepartmentCode(e.target.value)}
-                />
+                    <label>Mã phòng:</label>
+                    <input
+                        type="text"
+                        value={department_code}
+                        onChange={(e) => setDepartmentCode(e.target.value)}
+                    />
                 </div>
 
                 <div className="popup-update-department-actions">
