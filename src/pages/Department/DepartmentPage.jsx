@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import ListDepartment from '../../components/Department/ListDepartment'
 import DetailDepartment from '../../components/Department/DetailDepartment'
 import { withAuthorization } from '../../hoc'
-import RoomManager from '../../components/Department/Roommanager'
+import RoomManager from '../../components/Department/RoomManager'
 
 const DepartmentPage = () =>{
     return(
