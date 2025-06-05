@@ -233,7 +233,7 @@ const Dashboard = () => {
                 {
                   access.result === 'success' ? 
                   (<span className="dashboard-access-name">{access?.user_id?.full_name}</span>)
-                  : (<span className="dashboard-access-name">Không xác định</span>)
+                  : (access?.user_id ? (<span className="dashboard-access-name">{access?.user_id?.full_name}</span>) : (<span className="dashboard-access-name">Không xác định</span>))
                 }
                 <span className="dashboard-access-time">{formatAccessTime(access.access_time)}</span>
                 <span className={`dashboard-access-status ${access.result}`}>{access.result === 'success' ? '✔' : '✘'}</span>

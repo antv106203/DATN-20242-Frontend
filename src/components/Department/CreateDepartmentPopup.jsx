@@ -12,6 +12,7 @@ const CreateDepartment = ({ onClose, onSubmit}) => {
 
     const handleSubmit = () => {
         onSubmit(department);
+        onClose();
       };
 
     return(

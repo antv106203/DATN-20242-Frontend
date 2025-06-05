@@ -11,6 +11,7 @@ import { notification } from "antd";
 import { fetchListDepartment } from "../../service/DepartmentAPI";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../Loading/Loading";
 const departments = ["Phòng Nhân sự", "Phòng Kế toán", "Phòng Kỹ thuật"];
 const ListStaff = () =>{
 
@@ -28,7 +29,7 @@ const ListStaff = () =>{
     const [numberStaff, setNumberStaff] = useState(null);
     const [render, setRender] = useState(true);
     const [listDepartment, setListDepartment] = useState([]);
-
+    const [loading, setLoading] = useState(false);
     const [selectedDepartmentName, setSelectedDepartmentName] = useState("");
 
     const [listStaff, setListStaff] = useState([]);
@@ -61,11 +62,25 @@ const ListStaff = () =>{
 
 
     const getListStaff = async() =>{
-        const result = await fetchListStaff(id_department, page, limit, full_name, user_code, order, status);
-        setListStaff(result.data);
-        setPage(result.pagination.page);
-        setTotalPage(result.pagination.totalPages);
-        setNumberStaff(result.pagination.returned);
+        setLoading(true)
+        try {
+            const result = await fetchListStaff(id_department, page, limit, full_name, user_code, order, status);
+            if(result.status_code === 200){
+                setListStaff(result.data);
+                setPage(result.pagination.page);
+                setTotalPage(result.pagination.totalPages);
+                setNumberStaff(result.pagination.returned); 
+            }
+            else{
+                setLoading(false);
+                toast.error(result.message)
+            }
+        } catch (error) {
+            setLoading(false)
+            toast.error(`Internal server: ${error}`)
+        } finally{
+            setLoading(false)
+        }
     }
 
     const handleDeletePreStaff = async (_idUser) => {
@@ -127,8 +142,21 @@ const ListStaff = () =>{
     };
 
     const getListDepartment = async() =>{
+        setLoading(true);
+        try {
             const result = await fetchListDepartment(null,"asc", null);
-            setListDepartment(result.data);
+            if(result.status_code === 200){
+                setListDepartment(result.data);
+            }
+            else {
+                setLoading(false);
+                toast.error(result.message);
+            }
+        } catch (error) {
+            
+        } finally{
+            setLoading(false);
+        }
         }
 
     useEffect(() =>{
@@ -140,6 +168,7 @@ const ListStaff = () =>{
     },[])
     return(
         <>
+            {loading && <Loading />}
             <div className="liststaff-container">
                 <Title name={"Danh sách nhân viên"}/>
                 <div className="liststaff-content-container">

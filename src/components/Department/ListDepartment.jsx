@@ -17,7 +17,7 @@ const ListDepartment = () =>{
     const navigate = useNavigate();
 
     const [search, setSearch] = useState(null);
-    const [order, setOrder] = useState("asc")
+    const [order, setOrder] = useState("desc")
     const [listRoom, setListRoom] = useState([]);
     const [floor, setFloor] = useState(null);
 
@@ -44,7 +44,8 @@ const ListDepartment = () =>{
             setShowPopup(false);
             toast.success(result.message)
         }
-        else if(result.status_code === 400){
+        else{
+            setShowPopup(false);
             toast.error(result.message)
         }
     }
