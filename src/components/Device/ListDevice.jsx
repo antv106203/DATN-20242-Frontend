@@ -316,7 +316,10 @@ const ListDevice = () => {
         <>
             {popupSearchingDevice && 
             <PopupSearchingDevice 
-                onClose={() => setPopupSearchingDevice(false)}
+                onClose={async () => {
+                    setPopupSearchingDevice(false)
+                    await handleFetchListDevice();
+                }}
                 loading={loadingPopupFindDevice}
                 devices={devices}
                 onConnectClick={handleConnectClick}
@@ -327,7 +330,10 @@ const ListDevice = () => {
             {
                 showConnectPopup && 
                 <PopupCreateDevice 
-                    onClose={() => setShowConnectPopup(false)}
+                    onClose={async () => {
+                        setShowConnectPopup(false);
+                        await handleFetchListDevice();
+                    }}
                     device={selectedDevice}
                 />
             }
