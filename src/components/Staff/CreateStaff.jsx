@@ -18,7 +18,7 @@ const CreateStaff = () => {
         email: "",
         department_id: null,
         phone_number: "",
-        date_of_birth: null,
+        date_of_birth: "",
         sex: ""
     });
 
@@ -33,11 +33,20 @@ const CreateStaff = () => {
 
     const handleChangeInput = (e) => {
         const { name, value } = e.target;
+
+        let processedValue = value;
+
+        if (name === "date_of_birth") {
+            processedValue = value === "" ? null : value;
+        }
+
         setUserData((prevData) => ({
             ...prevData,
-            [name]: value,
+            [name]: processedValue,
         }));
     };
+
+
 
     const getListDepartment = async () => {
         const result = await fetchListDepartment(null,null, null);
@@ -91,7 +100,7 @@ const CreateStaff = () => {
                         <div className="create-staff-content-left">
                             <div className="create-staff-info">
                                 <div className="create-staff-info-label">
-                                    Tên nhân viên
+                                    Tên nhân viên <span style={{ color: "red" }}>*</span>
                                 </div>
                                 <div className="create-staff-info-input">
                                     <input 
@@ -105,7 +114,7 @@ const CreateStaff = () => {
                             </div>
                             <div className="create-staff-info">
                                 <div className="create-staff-info-label">
-                                    Mã nhân viên
+                                    Mã nhân viên <span style={{ color: "red" }}>*</span>
                                 </div>
                                 <div className="create-staff-info-input">
                                     <input 
@@ -119,7 +128,7 @@ const CreateStaff = () => {
                             </div>
                             <div className="create-staff-info">
                                 <div className="create-staff-info-label">
-                                    Email
+                                    Email <span style={{ color: "red" }}>*</span>
                                 </div>
                                 <div className="create-staff-info-input">
                                     <input 
@@ -133,7 +142,7 @@ const CreateStaff = () => {
                             </div>
                             <div className="create-staff-info">
                                 <div className="create-staff-info-label">
-                                    Giới tính
+                                    Giới tính <span style={{ color: "red" }}>*</span>
                                 </div>
                                 <div className="create-staff-info-input">
                                     <label style={{ marginRight: '10px' }}>
@@ -162,7 +171,7 @@ const CreateStaff = () => {
                         <div className="create-staff-content-right">
                             <div className="create-staff-info">
                                 <div className="create-staff-info-label">
-                                    Phòng
+                                    Phòng <span style={{ color: "red" }}>*</span>
                                 </div>
                                 <div className="create-staff-info-input">
                                     <select 

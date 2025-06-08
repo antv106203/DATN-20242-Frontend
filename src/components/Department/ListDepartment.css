@@ -13,7 +13,6 @@
     padding-left: 25px;
     padding-top: 40px;
     padding-bottom: 0px;
-    box-sizing: border-box;
     background-color: #ebedea;
 }
 .listdepartment-content{
@@ -24,7 +23,6 @@
     gap: 40px;
     padding: 40px 35px 40px 35px;
     justify-content: space-between; /* giúp căn đều trái phải */
-    box-sizing: border-box;
 }
 .listdepartment-floor-create{
     width: 20%;

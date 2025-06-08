@@ -17,48 +17,15 @@ import { accessChartData, generalInfomation, recentHistoryAccess } from '../../s
 import { toast } from 'react-toastify';
 import Loading from '../../components/Loading/Loading';
 import { formatAccessTime } from '../../utils/DateUtils';
+import API_CONFIG from '../../config/ApiConfig';
+import { io } from "socket.io-client";
+const socket = io(API_CONFIG.API_HOST);
 
-const chartData = [
-  { name: 'T2', success: 10, fail: 4 },
-  { name: 'T3', success: 8, fail: 6 },
-  { name: 'T4', success: 12, fail: 3 },
-  { name: 'T5', success: 14, fail: 7 },
-  { name: 'T6', success: 11, fail: 8 },
-];
+
+
+
 
 const Dashboard = () => {
-  const recentAccesses = [
-    {
-      name: 'Từ Văn An',
-      time: '8:45',
-      status: 'success',
-      avatar: 'https://i.pravatar.cc/150?img=1',
-    },
-    {
-      name: 'Nguyễn Văn B',
-      time: '9:00',
-      status: 'fail',
-      avatar: 'https://i.pravatar.cc/150?img=2',
-    },
-    {
-      name: 'Từ Văn An',
-      time: '9:15',
-      status: 'success',
-      avatar: 'https://i.pravatar.cc/150?img=3',
-    },
-    {
-      name: 'Nguyễn Văn B',
-      time: '9:30',
-      status: 'fail',
-      avatar: 'https://i.pravatar.cc/150?img=4',
-    },
-    {
-      name: 'Từ Văn An',
-      time: '10:00',
-      status: 'success',
-      avatar: 'https://i.pravatar.cc/150?img=5',
-    },
-  ];
 
   const [range, setRange] = useState('today');
   const chartDataToday = [
@@ -158,6 +125,20 @@ const Dashboard = () => {
   useEffect(() => {
     fetchAccessChartData();
   }, [range])
+
+
+  useEffect(() => {
+    const handler = () => {
+        fetchListRecentHistoryAccess();
+        fetchAccessChartData(); // dùng `range` trong hàm này
+    };
+
+    socket.on("access-log-updated", handler);
+
+    return () => {
+        socket.off("access-log-updated", handler);
+    };
+}, [range]);
   return (
     <>
       {loading && < Loading />}

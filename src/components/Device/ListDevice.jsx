@@ -12,143 +12,9 @@ import Pagination from "../Pagination/Pagination";
 import PopupDeviceDetail from "./PopupDeviceDetail";
 import { toast } from "react-toastify";
 import PopupConfirmDeleteDevice from "./PopupConfirmDeleteDevice";
-
-const device1 = [
-        {
-            "_id": "67d03e49ac671fe5d506f9f1",
-            "device_name": "AS608-jjdghggh",
-            "mac_address": "00:1A:2B:3C:4D:5E",
-            "department_id": {
-                "_id": "67cf07c32739a672b5291121",
-                "department_name": "Giám đôc",
-                "total_member": -5,
-                "department_code": "DRT",
-                "status": "ACTIVE",
-                "created_at": "2025-03-10T15:39:47.177Z",
-                "updated_at": "2025-03-10T15:39:47.178Z",
-                "createdAt": "2025-03-10T15:39:47.183Z",
-                "updatedAt": "2025-04-11T18:24:39.179Z",
-                "department_id": 1,
-                "__v": 0,
-                "floor": "Tầng 1"
-            },
-            "device_id": 1,
-            "__v": 0,
-            "status": "OFFLINE"
-        },
-        {
-            "_id": "682a349370f93c393a31680b",
-            "device_name": "AS608",
-            "mac_address": "A0:B7:65:21:82:BC",
-            "department_id": {
-                "_id": "67cf088f2739a672b529112c",
-                "department_name": "Kế toán",
-                "total_member": 12,
-                "department_code": "MKT-02",
-                "status": "ACTIVE",
-                "created_at": "2025-03-10T15:43:11.454Z",
-                "updated_at": "2025-03-10T15:43:11.454Z",
-                "createdAt": "2025-03-10T15:43:11.454Z",
-                "updatedAt": "2025-05-12T07:43:51.407Z",
-                "department_id": 2,
-                "__v": 0,
-                "floor": "Tầng 2"
-            },
-            "device_id": 2,
-            "__v": 0,
-            "status": "ONLINE"
-        },
-        {
-            "_id": "682b4d0f1d88c43055f21987",
-            "device_name": "esp32 - phát triển",
-            "mac_address": "F8:B3:B7:7A:97:44",
-            "department_id": {
-                "_id": "67fc0cbc56b9bf088c4f2b75",
-                "department_name": "Phát triển",
-                "total_member": 1,
-                "department_code": "DVL-01",
-                "status": "ACTIVE",
-                "floor": "Tầng 5",
-                "created_at": "2025-04-13T19:13:00.696Z",
-                "updated_at": "2025-04-13T19:13:00.697Z",
-                "createdAt": "2025-04-13T19:13:00.703Z",
-                "updatedAt": "2025-05-12T02:46:24.959Z",
-                "department_id": 4,
-                "__v": 0
-            },
-            "device_id": 3,
-            "__v": 0,
-            "status": "OFFLINE"
-        },
-        {
-            "_id": "682b4d0f1d88c43055f21987",
-            "device_name": "esp32 - phát triển",
-            "mac_address": "F8:B3:B7:7A:97:44",
-            "department_id": {
-                "_id": "67fc0cbc56b9bf088c4f2b75",
-                "department_name": "Phát triển",
-                "total_member": 1,
-                "department_code": "DVL-01",
-                "status": "ACTIVE",
-                "floor": "Tầng 5",
-                "created_at": "2025-04-13T19:13:00.696Z",
-                "updated_at": "2025-04-13T19:13:00.697Z",
-                "createdAt": "2025-04-13T19:13:00.703Z",
-                "updatedAt": "2025-05-12T02:46:24.959Z",
-                "department_id": 4,
-                "__v": 0
-            },
-            "device_id": 3,
-            "__v": 0,
-            "status": "OFFLINE"
-        },
-        {
-            "_id": "682b4d0f1d88c43055f21987",
-            "device_name": "esp32 - phát triển",
-            "mac_address": "F8:B3:B7:7A:97:44",
-            "department_id": {
-                "_id": "67fc0cbc56b9bf088c4f2b75",
-                "department_name": "Phát triển",
-                "total_member": 1,
-                "department_code": "DVL-01",
-                "status": "ACTIVE",
-                "floor": "Tầng 5",
-                "created_at": "2025-04-13T19:13:00.696Z",
-                "updated_at": "2025-04-13T19:13:00.697Z",
-                "createdAt": "2025-04-13T19:13:00.703Z",
-                "updatedAt": "2025-05-12T02:46:24.959Z",
-                "department_id": 4,
-                "__v": 0
-            },
-            "device_id": 3,
-            "__v": 0,
-            "status": "OFFLINE"
-        },
-        {
-            "_id": "682b4d0f1d88c43055f21987",
-            "device_name": "esp32 - phát triển",
-            "mac_address": "F8:B3:B7:7A:97:44",
-            "department_id": {
-                "_id": "67fc0cbc56b9bf088c4f2b75",
-                "department_name": "Phát triển",
-                "total_member": 1,
-                "department_code": "DVL-01",
-                "status": "ACTIVE",
-                "floor": "Tầng 5",
-                "created_at": "2025-04-13T19:13:00.696Z",
-                "updated_at": "2025-04-13T19:13:00.697Z",
-                "createdAt": "2025-04-13T19:13:00.703Z",
-                "updatedAt": "2025-05-12T02:46:24.959Z",
-                "department_id": 4,
-                "__v": 0
-            },
-            "device_id": 3,
-            "__v": 0,
-            "status": "OFFLINE"
-        }
-        
-        
-    ]
+import API_CONFIG from "../../config/ApiConfig";
+import { io } from "socket.io-client";
+const socket = io(API_CONFIG.API_HOST);
 
 const ListDevice = () => {
     const [popupSearchingDevice, setPopupSearchingDevice] = useState(false);
@@ -311,6 +177,20 @@ const ListDevice = () => {
     useEffect(() => {
         handleFetchListDevice();
     }, [page]);
+
+    useEffect(() => {
+        const handleStatusUpdate = () => {
+            handleFetchListDevice();
+        };
+
+        socket.on("device-status-updated", handleStatusUpdate);
+
+        return () => {
+            socket.off("device-status-updated", handleStatusUpdate);
+        };
+    }, [page, limit, search, department_id]);
+
+
 
     return (
         <>

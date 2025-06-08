@@ -190,7 +190,13 @@ const StaffDetail = () => {
                                 </div>
                                 <div className="staff-detail-info-item">
                                     <span className="staff-detail-info-item-label">Số điện thoại:</span>
-                                    <span className="staff-detail-info-item-value">{detailStaff?.user?.phone_number}</span>
+                                    <span className="staff-detail-info-item-value">
+                                        {
+                                            detailStaff?.user?.phone_number 
+                                                ? detailStaff.user.phone_number 
+                                                : "Không có"
+                                        }
+                                    </span>
                                 </div>
                             </div>
                             <div className="staff-detail-info-row">
@@ -204,7 +210,13 @@ const StaffDetail = () => {
                                 </div>
                                 <div className="staff-detail-info-item">
                                     <span className="staff-detail-info-item-label">Ngày sinh:</span>
-                                    <span className="staff-detail-info-item-value">{formatDateOnly(detailStaff?.user?.date_of_birth)}</span>
+                                    <span className="staff-detail-info-item-value">
+                                        {
+                                            detailStaff?.user?.date_of_birth 
+                                                ? formatDateOnly(detailStaff?.user?.date_of_birth)
+                                                : "Không có"
+                                        }
+                                    </span>
                                 </div>
                                 <div className="staff-detail-info-item">
                                     <span className="staff-detail-info-item-label">Trạng thái:</span>
