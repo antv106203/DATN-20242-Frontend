@@ -59,7 +59,10 @@ const CreateStaff = () => {
         const formData = new FormData();
         formData.append("avatar", avatarFile);
         for (let key in userData) {
-            formData.append(key, userData[key]);
+            // Bỏ qua nếu là chuỗi rỗng hoặc null (đặc biệt quan trọng với ObjectId như department_id)
+            if (userData[key] !== "" && userData[key] !== null) {
+                formData.append(key, userData[key]);
+            }
         }
         // Send formData to your API endpoint
         try {
@@ -72,7 +75,13 @@ const CreateStaff = () => {
                 }, 500);
             }
             else{
-                toast.error(res.message);
+                toast.error(
+                    <div>
+                        {(res.message).map((msg, idx) => (
+                            <div key={idx}>{msg}</div>
+                        ))}
+                    </div>
+                );
             }
         }
         catch (error) {
@@ -179,7 +188,7 @@ const CreateStaff = () => {
                                         value={userData.department_id}
                                         onChange={handleChangeInput}
                                     >
-                                        <option value={null}>Chọn phòng ban</option>
+                                        <option value={""}>Chọn phòng ban</option>
                                         {listDepartment.map((department) => (
                                             <option key={department._id} value={department._id}>
                                                 {department.department_name}
