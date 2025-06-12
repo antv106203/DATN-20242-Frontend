@@ -133,4 +133,28 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-grow: 1;
+    background-color: #FFFFFF;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.list-accesslog-pagination-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.list-accesslog-pagination-left-current-page{
+    display: flex;
+    align-items: center;
+    border: 1px solid #c0c4bc;
+    padding: 5px 15px 5px 15px;
+}
+.list-accesslog-pagination-right{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    align-items: center;
 }

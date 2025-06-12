@@ -14,6 +14,7 @@ import { io } from "socket.io-client";
 import { toast } from "react-toastify"
 const socket = io(API_CONFIG.API_HOST);
 import Swal from "sweetalert2";
+import Pagination from "../Pagination/Pagination"
 
 const ListAccessLog = () => {
 
@@ -29,21 +30,11 @@ const ListAccessLog = () => {
     const [order, setOrder] = useState("desc");
     const [listDepartment, setListDepartment] = useState([])
     const [render, setRender] = useState(false)
-    const handlePrevPage = () => {
-        if (page > 1) setPage(page - 1);
-    };
+
+    const handlePageChange = (page) => {
+        setPage(page);
+    }
     
-    const handleNextPage = () => {
-        if (page < totalPage) setPage(page + 1);
-    };
-    
-    const handleGoToFirstPage = () => {
-        setPage(1);
-    };
-    
-    const handleGoToLastPage = () => {
-        setPage(totalPage);
-    };
 
     const handleSearch = () => {
         fetchListAccessLog();
@@ -128,7 +119,7 @@ const ListAccessLog = () => {
         <>
             {loading && <Loading />}
             <div className="list-accesslog-container">
-                <Title name={"Lịch sử truy nhập"}/>
+                <Title name={"Lịch sử truy cập"}/>
                 <div className="list-accesslog-content-container">
                     <div className="list-accesslog-content">
                         <div className="list-accesslog-filter">
@@ -204,11 +195,11 @@ const ListAccessLog = () => {
                             }
                         </div>
                         <div className="list-accesslog-pagination">
-                            <div className="pagination-left">
+                            <div className="list-accesslog-pagination-left">
                                 <div>
                                     Trang: 
                                 </div>
-                                <div className="pagination-left-current-page">
+                                <div className="list-accesslog-pagination-left-current-page">
                                     {page}
                                 </div>
                                 <div>
@@ -218,14 +209,8 @@ const ListAccessLog = () => {
                                     {totalPage}
                                 </div>
                             </div>
-                            <div className="pagination-right">
-                                <IconPagination icon={faBackward} skip={"right"} onClick={handleGoToFirstPage}/>
-                                <IconPagination icon={faArrowLeft} skip={"right"} onClick={handlePrevPage}/>
-                                <div className="pagination-right-current-page">
-                                    {page}
-                                </div>
-                                <IconPagination icon={faArrowRight} skip={"left"} onClick={handleNextPage}/>
-                                <IconPagination icon={faForward} skip={"left"} onClick={handleGoToLastPage}/>
+                            <div className="list-accesslog-pagination-right">
+                                <Pagination totalPages={totalPage} currentPage={page} onPageChange={handlePageChange} name={"Lượt"} total={ListAccessLog.length}/>
                             </div>
                         </div>
                     </div>

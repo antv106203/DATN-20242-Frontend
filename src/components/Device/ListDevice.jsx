@@ -29,7 +29,7 @@ const ListDevice = () => {
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(6);
     const [totalPage, setTotalPage] = useState(null);
-    const [currenPage, setCurrentPage] = useState(null);
+    const [currentPage, setCurrentPage] = useState(null);
     const [listDevice, setListDevice] = useState([]);
     const [search, setSearch] = useState("");
     const [department_id, setDepartmentId] = useState(null);
@@ -338,7 +338,7 @@ const ListDevice = () => {
                             </div>
                         </div>
                         <div className="list-device-pagination-right">
-                            <Pagination totalPages={totalPage} currentPage={currenPage} onPageChange={handlePageChange} name={"Thiết bị"} total={listDevice.length}/>
+                            <Pagination totalPages={totalPage} currentPage={currentPage} onPageChange={handlePageChange} name={"Thiết bị"} total={listDevice.length}/>
                         </div>
                     </div>
                 </div>
