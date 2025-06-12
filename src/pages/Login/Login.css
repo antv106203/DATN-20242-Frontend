@@ -7,15 +7,15 @@
 }
 
 html, body {
-    height: 100%;
-    overflow: hidden; /* Xoá thanh cuộn dọc */
+    height: 100vh;
+    width: 100%;
 }
 
 /* PAGE BACKGROUND */
 .login-page {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background: url('/src/assets/1c8e86c7ec63a076a6d123a3344aecf2.jpg') no-repeat center center/cover;
+    background: url('/src/assets/1c8e86c7ec63a076a6d123a3344aecf2.jpg') no-repeat center center / cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +30,7 @@ html, body {
     max-width: 400px;
     box-shadow: 0 8px 25px rgba(0, 128, 0, 0.2);
     animation: fadeIn 0.4s ease;
+    box-sizing: border-box;
 }
 
 /* TEXT STYLES */
@@ -75,7 +76,7 @@ html, body {
 }
 
 .password-wrapper input {
-    padding-right: 44px; /* chừa chỗ cho icon mắt */
+    padding-right: 44px;
 }
 
 .toggle-password {
