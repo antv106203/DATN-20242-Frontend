@@ -5,6 +5,7 @@
     font-family: "Segoe UI", sans-serif;
     flex-direction: column;
     gap: 10px;
+    height: 100%;
 }
 
 .redesign-staff-content {
@@ -99,7 +100,8 @@
     font-weight: 600;
 }
 .table-responsive-wrapper {
-    height: 72%;
+    max-height: 350px;
+    min-height: 350px;
     overflow-y: auto;
     border-radius: 12px;
     background: white;
@@ -110,7 +112,6 @@
     border-collapse: collapse;
     background-color: white;
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
