@@ -1,17 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 .container-layout{
     display: flex;
-    height: 100vh;
+    height: 100%;
     flex-direction: row;
 }
 .right-layout{
-    flex-grow: 1; /* Phần còn lại của màn hình sẽ được chia cho right-layout */
+    flex-grow: 1;
     background-color: #fff;
-    height: 100vh;
     display: flex;
     flex-direction: column;
 }
