@@ -111,7 +111,8 @@
 
 .fingerprint-card {
     perspective: 1000px;
-    height: 200px;
+    /*------------------------------*/
+    height: 100%;
     background-color: #f4f6fa; /* nhẹ nhàng, nổi trên nền trắng */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* tạo chiều sâu */
     color: #333;

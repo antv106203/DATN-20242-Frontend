@@ -1,19 +1,16 @@
 .list-accesslog-container{
     display: flex;
     flex-direction: column;
-    
     flex-grow: 1;
+    gap: 10px;
+    background-color: #f1f5f9;
 }
 .list-accesslog-content-container{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 25px;
     padding-bottom: 0px;
     box-sizing: border-box;
-    background-color: #ebedea;
 }
 .list-accesslog-content{
     display: flex;
@@ -121,13 +118,13 @@
 }
 
 .list-accesslog{
-    padding: 30px 0px 20px 0px;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 5 cột bằng nhau */
     gap: 10px; /* khoảng cách giữa các item */
-    padding: 40px 0px 40px 0px;
+    padding: 20px 0px 20px 0px;
     perspective: 1000px; /* hiệu ứng 3D */
-    height: 400px;
+    /*400px*/
+    height: 70%;
 }
 .list-accesslog-pagination{
     display: flex;
