@@ -9,12 +9,14 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    margin-left: 250px;
+    min-height: 100vh;
 }
 
 /* Media queries for responsive design */
 @media screen and (max-width: 1024px) {
     .right-layout {
-        margin-left: 220px;
+        margin-left: 250px;
     }
 }
 
@@ -25,7 +27,7 @@
 
     .right-layout {
         width: 100%;
-        margin-left: 200px;
+        margin-left: 0;
     }
 }
 

@@ -1,17 +1,19 @@
-.list-fingerprint-container{
+.list-fingerprint-container {
     display: flex;
     flex-direction: column;
     background-color: #ebedea;
     flex-grow: 1;
 }
-.list-fingerprint-container-content{
+
+.list-fingerprint-container-content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     box-sizing: border-box;
     padding-top: 20px;
 }
-.list-fingerprint-toolbar{
+
+.list-fingerprint-toolbar {
     display: flex;
     flex-direction: row;
     padding-left: 60px;
@@ -23,8 +25,10 @@
     height: 12%;
     gap: 180px;
     align-items: center;
+    flex-wrap: wrap;
 }
-.list-fingerprint-toolbar-create{
+
+.list-fingerprint-toolbar-create {
     display: flex;
     flex-direction: row;
     background-color: #08a189;
@@ -38,28 +42,26 @@
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
 }
-.list-fingerprint-toolbar-create:hover{
+
+.list-fingerprint-toolbar-create:hover {
     cursor: pointer;
 }
-.list-fingerprint-toolbar-create:active{
+
+.list-fingerprint-toolbar-create:active {
     cursor: pointer;
     scale: 1.05;
 }
+
 .list-fingerprint-toolbar-filter {
     display: flex;
     flex-direction: row;
     height: 100%;
     gap: 30px;
+    flex-wrap: wrap;
+    flex: 1;
 }
-.list-fingerprint-toolbar-filter input{
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: border 0.3s, box-shadow 0.3s;
-    min-width: 160px;
-    margin: 0px;
-}
+
+.list-fingerprint-toolbar-filter input,
 .list-fingerprint-toolbar-filter select {
     padding: 8px 12px;
     border: 1px solid #ccc;
@@ -67,6 +69,7 @@
     font-size: 14px;
     transition: border 0.3s, box-shadow 0.3s;
     min-width: 160px;
+    margin: 0px;
 }
 
 .list-fingerprint-toolbar-filter input:focus,
@@ -90,16 +93,19 @@
 .list-fingerprint-toolbar-filter-button:hover {
     background-color: #167869;
 }
+
 .list-fingerprint-toolbar-filter-button:active {
     scale: 1.05;
 }
-.list-fingerprint-table{
+
+.list-fingerprint-table {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     background: #FFFFFF;
-    
+
 }
+
 .fingerprint-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -113,16 +119,21 @@
     perspective: 1000px;
     /*------------------------------*/
     height: 100%;
-    background-color: #f4f6fa; /* nhẹ nhàng, nổi trên nền trắng */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* tạo chiều sâu */
+    background-color: #f4f6fa;
+    /* nhẹ nhàng, nổi trên nền trắng */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    /* tạo chiều sâu */
     color: #333;
 }
+
 .fingerprint-card.active {
-    border:1px solid #22c55e; /* xanh lá */
+    border: 1px solid #22c55e;
+    /* xanh lá */
 }
 
 .fingerprint-card.inactive {
-  border:1px solid #dc2626; /* đỏ */
+    border: 1px solid #dc2626;
+    /* đỏ */
 }
 
 .card-inner {
@@ -245,7 +256,8 @@
 .card-back button:nth-child(3):hover {
     background-color: #15803d;
 }
-.list-fingerprint-table-pagination{
+
+.list-fingerprint-table-pagination {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -255,17 +267,126 @@
     padding-left: 20px;
     padding-right: 20px;
 }
-.list-fingerprint-table-pagination-left{
+
+.list-fingerprint-table-pagination-left {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 }
-.list-fingerprint-pagination-left-current-page{
+
+.list-fingerprint-pagination-left-current-page {
     display: flex;
     align-items: center;
     border: 1px solid #c0c4bc;
     padding: 5px 15px 5px 15px;
 }
 
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    .fingerprint-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
 
+@media screen and (max-width: 992px) {
+    .list-fingerprint-toolbar {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .list-fingerprint-toolbar-filter {
+        gap: 10px;
+    }
+
+    .fingerprint-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .list-fingerprint-container-content {
+        padding: 15px;
+    }
+
+    .list-fingerprint-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .list-fingerprint-toolbar-filter {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .list-fingerprint-toolbar-filter input,
+    .list-fingerprint-toolbar-filter select {
+        width: 100%;
+    }
+
+    .fingerprint-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .fingerprint-card {
+        height: 260px;
+    }
+
+    .fingerprint-avatar {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .list-fingerprint-container-content {
+        padding: 10px;
+    }
+
+    .list-fingerprint-toolbar {
+        padding: 10px;
+    }
+
+    .list-fingerprint-toolbar-create {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .fingerprint-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .fingerprint-card {
+        height: 240px;
+    }
+
+    .card-front h4 {
+        font-size: 14px;
+    }
+
+    .card-front p {
+        font-size: 12px;
+    }
+
+    .card-back button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .list-fingerprint-toolbar-filter input,
+    .list-fingerprint-toolbar-filter select {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .list-fingerprint-toolbar-filter-button {
+        width: 100%;
+    }
+}

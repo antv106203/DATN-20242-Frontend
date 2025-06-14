@@ -17,12 +17,14 @@
   height: 100vh;
   background-color: deepskyblue;
   color: white;
-  position: relative;
+  position: fixed;
   top: 0;
+  left: 0;
   text-align: center;
   transition: all .3s ease-in-out;
   overflow-y: auto;
   flex-shrink: 0 !important;
+  z-index: 1000;
 }
 
 .item {
@@ -384,6 +386,7 @@ input {
   .mobile-toggle {
     display: none !important;
   }
+
 }
 
 /* Thêm padding cho content khi sidebar ở chế độ mobile */
