@@ -1,11 +1,43 @@
-.container-layout{
+.container-layout {
     display: flex;
     height: 100%;
     flex-direction: row;
 }
-.right-layout{
+
+.right-layout {
     flex-grow: 1;
     background-color: #fff;
     display: flex;
     flex-direction: column;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 1024px) {
+    .right-layout {
+        margin-left: 220px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-layout {
+        flex-direction: column;
+    }
+
+    .right-layout {
+        width: 100%;
+        margin-left: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-layout {
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    .right-layout {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 60px;
+    }
 }

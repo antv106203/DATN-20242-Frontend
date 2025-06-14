@@ -6,9 +6,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html, body {
+html,
+body {
     height: 100vh;
     width: 100%;
+    overflow-x: hidden;
 }
 
 /* PAGE BACKGROUND */
@@ -19,6 +21,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 /* LOGIN FORM BOX */
@@ -113,8 +116,67 @@ html, body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .login-box {
+        padding: 30px;
+        max-width: 350px;
+    }
+
+    .login-title {
+        font-size: 1.8rem;
+    }
+
+    .login-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .login-form input {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .login-form button {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login-box {
+        padding: 20px;
+        max-width: 300px;
+    }
+
+    .login-title {
+        font-size: 1.5rem;
+    }
+
+    .login-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+
+    .login-form input {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .login-form button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .toggle-password {
+        right: 12px;
+        font-size: 1.1rem;
     }
 }

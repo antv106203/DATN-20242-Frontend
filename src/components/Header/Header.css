@@ -1,15 +1,16 @@
-.header{
+.header {
     background-color: #ebedea;
     display: flex;
     box-sizing: border-box;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-right: 35px;
+    padding: 7px 35px;
     justify-content: right;
     flex-direction: row;
     gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
 }
-.tagLogout{
+
+.tagLogout {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -25,18 +26,21 @@
     padding-right: 10px;
 }
 
-.tagLogout:hover{
+.tagLogout:hover {
     background-color: #08a189;
     cursor: pointer;
     color: white;
     font-weight: 500;
 }
+
 .tagLogout:hover .icon-header {
-    color: white; /* Đảm bảo icon chuyển sang màu trắng */
+    color: white;
+    /* Đảm bảo icon chuyển sang màu trắng */
 }
 
 .icon-header {
-    font-size: 20px; /* Điều chỉnh kích thước icon */
+    font-size: 20px;
+    /* Điều chỉnh kích thước icon */
     color: #a0a29e;
 }
 
@@ -60,7 +64,8 @@
 
 .bell-icon {
     font-size: 24px;
-    color: #ffc107; /* Màu vàng chuông */
+    color: #ffc107;
+    /* Màu vàng chuông */
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -83,10 +88,71 @@
 
 /* Animation rung */
 @keyframes shake {
-    0% { transform: rotate(0deg); }
-    20% { transform: rotate(-15deg); }
-    40% { transform: rotate(15deg); }
-    60% { transform: rotate(-10deg); }
-    80% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(-15deg);
+    }
+
+    40% {
+        transform: rotate(15deg);
+    }
+
+    60% {
+        transform: rotate(-10deg);
+    }
+
+    80% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 7px 15px;
+        justify-content: center;
+    }
+
+    .right-header {
+        gap: 10px;
+    }
+
+    .tagLogout {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+
+    .icon-header {
+        font-size: 18px;
+    }
+
+    .bell-icon {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 5px 10px;
+    }
+
+    .tagLogout {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+
+    .icon-header {
+        font-size: 16px;
+    }
+
+    .bell-icon {
+        font-size: 18px;
+    }
 }

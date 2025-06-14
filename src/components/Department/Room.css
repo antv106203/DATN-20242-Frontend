@@ -1,39 +1,80 @@
-.room-container{
+.room-container {
     border: 2px solid #4cab9d;
     display: flex;
     flex-direction: row;
     gap: 15px;
-    padding: 15px 20px 15px 20px;
+    padding: 15px 20px;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.5),    /* bóng dưới lớn hơn */
-    -2px 0 6px rgba(0, 0, 0, 0.2),    /* trái */
-    2px 0 6px rgba(0, 0, 0, 0.2);
+        0 4px 12px rgba(0, 0, 0, 0.5),
+        /* bóng dưới lớn hơn */
+        -2px 0 6px rgba(0, 0, 0, 0.2),
+        /* trái */
+        2px 0 6px rgba(0, 0, 0, 0.2);
     background-color: #FFFFFF;
     width: 180px;
     height: 60px;
+    transition: all 0.3s ease;
 }
-.room-icon{
+
+.room-icon {
     color: #08a189;
     font-size: 20px;
 }
-.room-name{
+
+.room-name {
     color: #08a189;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
 }
 
-.room-container:hover{
+.room-container:hover {
     cursor: pointer;
     background-color: #08a189;
-    
+
 }
 
-.room-container:hover .room-icon{
+.room-container:hover .room-icon {
     color: #FFFFFF;
 }
-.room-container:hover .room-name{
+
+.room-container:hover .room-name {
     color: #FFFFFF;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .room-container {
+        width: 160px;
+        height: 55px;
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    .room-icon {
+        font-size: 18px;
+    }
+
+    .room-name {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .room-container {
+        width: 140px;
+        height: 50px;
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .room-icon {
+        font-size: 16px;
+    }
+
+    .room-name {
+        font-size: 13px;
+    }
 }

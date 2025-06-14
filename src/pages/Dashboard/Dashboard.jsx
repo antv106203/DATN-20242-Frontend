@@ -28,34 +28,6 @@ const socket = io(API_CONFIG.API_HOST);
 const Dashboard = () => {
 
   const [range, setRange] = useState('today');
-  const chartDataToday = [
-    { name: '7h', success: 3, fail: 1 },
-    { name: '9h', success: 5, fail: 0 },
-    { name: '11h', success: 6, fail: 2 },
-    { name: '13h', success: 4, fail: 1 },
-    { name: '15h', success: 7, fail: 3 },
-  ];
-
-  const chartDataWeek = [
-    { name: 'T2', success: 10, fail: 4 },
-    { name: 'T3', success: 8, fail: 6 },
-    { name: 'T4', success: 12, fail: 3 },
-    { name: 'T5', success: 14, fail: 7 },
-    { name: 'T6', success: 11, fail: 8 },
-    { name: 'T7', success: 9, fail: 5 },
-    { name: 'CN', success: 6, fail: 2 },
-  ];
-
-  const chartDataMonth = [
-    { name: 'Tuần 1', success: 35, fail: 10 },
-    { name: 'Tuần 2', success: 40, fail: 14 },
-    { name: 'Tuần 3', success: 32, fail: 8 },
-    { name: 'Tuần 4', success: 45, fail: 12 },
-  ];
-
-  const chartData =
-    range === 'today' ? chartDataToday : range === 'week' ? chartDataWeek : chartDataMonth;
-
   const [generalInfo, setGeneralInfo] = useState({});
   const [loading, setLoading] = useState(false);
   const [listRecentHistory, setListRecentHistory] = useState([]);

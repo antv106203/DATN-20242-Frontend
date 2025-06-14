@@ -6,6 +6,23 @@
     gap: 30px;
 }
 
+/* Thêm class mới để điều chỉnh padding của header */
+.right-layout:has(.manage-list-room-container) .header {
+    padding-right: 80px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .right-layout:has(.manage-list-room-container) .header {
+        padding-right: 15px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .right-layout:has(.manage-list-room-container) .header {
+        padding-right: 10px !important;
+    }
+}
+
 .manage-list-room-content {
     background: #fff;
     border-radius: 12px;
@@ -101,6 +118,7 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
 }
+
 .manage-list-room-scroll-btn:hover {
     background-color: #e9ecef;
     border-color: #999;
@@ -123,6 +141,7 @@
 .manage-list-room-room-list::-webkit-scrollbar {
     display: none;
 }
+
 .manage-list-room-room-list {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -134,7 +153,7 @@
     background: white;
     border: 1px solid #ccc;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -224,6 +243,4 @@
     margin-left: 10px;
 }
 
-
 /***************************************/
-
