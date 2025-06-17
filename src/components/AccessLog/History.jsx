@@ -18,9 +18,20 @@ const History = ({ accesslog, onClick}) => {
                 <div className="history-line-full-name">
                     {accesslog?.user_id?.full_name || ""}
                 </div>
-                <div className="history-line-department-name">
+                {/* <div className="history-line-department-name">
                     {accesslog?.user_id?.department_id?.department_name || ""}
-                </div>
+                </div> */}
+                {
+                    accesslog?.user_id && accesslog?.user_id?.department_id ? (
+                        <div className="history-line-department-name">
+                            {accesslog?.user_id?.department_id?.department_name}
+                        </div>
+                    ) : (
+                        <div className="history-line-department-name">
+                            {accesslog?.department_id?.department_name}
+                        </div>
+                    )
+                }
                 <div className="history-line-time">
                     {formatAccessTime(accesslog?.access_time)}
                 </div>

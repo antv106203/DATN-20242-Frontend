@@ -76,57 +76,70 @@ const ListStaff = () =>{
                 toast.error(result.message)
             }
         } catch (error) {
-            setLoading(false)
             toast.error(`Internal server: ${error}`)
+            setLoading(false);
         } finally{
             setLoading(false)
         }
     }
 
     const handleDeletePreStaff = async (_idUser) => {
-        const res = await deletePreStaff(_idUser);
+        setLoading(true);
+        try {
+            const res = await deletePreStaff(_idUser);
     
-        if (res.status_code === 200) {
-            toast.success(res.message);
-        } else {
-            toast.error(res.message);
+            if (res.status_code === 200) {
+                toast.success(res.message);
+                fetchListStaff()
+            } else {
+                toast.error(res.message);
+                setLoading(false);
+            }
+        } catch (error) {
+            toast.error(`Internal server: ${error}`);
+            setLoading(false);
+        } finally{
+            setLoading(false);
         }
-    
-        // Chờ 1 giây rồi render lại
-        setTimeout(() => {
-            setRender(prev => !prev);
-        }, 1000); 
     };
     const handleRestoreStaff = async (_idUser) => {
-        const res = await restoreStaff(_idUser);
+        setLoading(true);
+        try {
+            const res = await restoreStaff(_idUser);
     
-        if (res.status_code === 200) {
-            // openNotificationWithIcon("success", res.message);
-            toast.success(res.message);
-        } else {
-            // openNotificationWithIcon("error", res.message);
-            toast.error(res.message);
+            if (res.status_code === 200) {
+                toast.success(res.message);
+                fetchListStaff();
+            } else {
+                toast.error(res.message);
+                setLoading(false);
+            }
+        } catch (error) {
+            toast.error(`Internal server: ${error}`);
+            setLoading(false);
+        } finally{
+            setLoading(false);
         }
-    
-        // Chờ 1 giây rồi render lại
-        setTimeout(() => {
-            setRender(prev => !prev);
-        }, 1000); 
     };
 
     const handleDeleteStaff = async (_idUser) => {
-        const res = await deleteStaff(_idUser);
+        setLoading(true);
+        try {
+            const res = await deleteStaff(_idUser);
     
-        if (res.status_code === 200) {
-            toast.success(res.message);
-        } else {
-            toast.error(res.message);
+            if (res.status_code === 200) {
+                toast.success(res.message);
+                fetchListStaff();
+            } else {
+                toast.error(res.message);
+                setLoading(false);
+            }
+        } catch (error) {
+            toast.error(error);
+            setLoading(false);
+        } finally {
+            setLoading(false);
         }
-    
-        // Chờ 1 giây rồi render lại
-        setTimeout(() => {
-            setRender(prev => !prev);
-        }, 1000); 
     };
 
     const handleDepartmentChange = (e) => {
