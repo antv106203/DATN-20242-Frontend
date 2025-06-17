@@ -103,7 +103,7 @@ const CreateStaff = () => {
                 <Loading />
             )}
             <div className="create-staff-container">
-                <Title name={"Thêm mới nhân viên"} />
+                <Title name={"Thêm mới nhân viên"} exit={true} onExit={() => navigate("/at/staff")}/>
                 <div className="create-staff-content-container">
                     <div className="create-staff-content">
                         <div className="create-staff-content-left">

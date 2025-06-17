@@ -24,7 +24,7 @@
   transition: all .3s ease-in-out;
   overflow-y: auto;
   flex-shrink: 0 !important;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .item {
@@ -134,7 +134,21 @@
 }
 
 .collapsed {
-  width: 85px;
+  width: 85px !important;
+}
+
+.container-wrapper.collapsed {
+  width: 85px !important;
+}
+
+.container-wrapper.collapsed .item span:not(.icon) {
+  display: none;
+}
+
+.container-wrapper.collapsed .item .icon {
+  width: 100%;
+  padding-right: 0;
+  text-align: center;
 }
 
 input {
@@ -325,68 +339,52 @@ input {
 @media screen and (max-width: 480px) {
   .container-wrapper {
     width: 100% !important;
-    height: 60px !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: none !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-around !important;
-    padding: 0 10px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    z-index: 1000 !important;
-    background-color: #2b4050 !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    height: 80px;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0 !important;
   }
 
   .container-wrapper.collapsed {
-    width: 100% !important;
-    height: 60px !important;
+    bottom: -80px !important;
+  }
+
+  .container-wrapper .toggler {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 22px;
+    cursor: pointer;
   }
 
   .item {
-    width: auto !important;
-    padding: 0 10px !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 14px !important;
+    padding: 0;
+    text-align: center;
+    width: auto;
   }
 
   .icon {
-    font-size: 18px !important;
-    padding-right: 5px !important;
-    width: auto !important;
+    display: block;
+    width: auto;
+    font-size: 20px;
+    padding-right: 0;
+    margin-bottom: 5px;
   }
 
-  .logo-image {
+  .logo-image,
+  .dropdown-item,
+  .item span:not(.icon) {
     display: none !important;
   }
-
-  .toggler {
-    display: none !important;
-  }
-
-  .dropdown-item {
-    display: none !important;
-  }
-
-  .item span {
-    display: none !important;
-  }
-
-  .right-layout {
-    padding-top: 60px !important;
-  }
-
-  .mobile-toggle {
-    display: none !important;
-  }
-
 }
 
 /* Thêm padding cho content khi sidebar ở chế độ mobile */
@@ -412,10 +410,15 @@ input {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 2;
   }
 
   .sidebar-overlay.show {
     display: block;
   }
+}
+
+/* Original rule for container-wrapper to ensure fixed position */
+.container-wrapper {
+  position: fixed !important;
 }
