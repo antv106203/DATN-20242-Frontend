@@ -43,3 +43,34 @@
         margin-bottom: 60px;
     }
 }
+
+/* Khi sidebar co lại, layout bên phải sẽ dãn ra */
+.container-wrapper.collapsed~.right-layout {
+    margin-left: 85px !important;
+}
+
+/* Responsive khi co sidebar */
+@media screen and (max-width: 1200px) {
+    .container-wrapper.collapsed~.right-layout {
+        margin-left: 70px !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container-wrapper.collapsed~.right-layout {
+        margin-left: 60px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-wrapper.collapsed~.right-layout {
+        margin-left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-wrapper.collapsed~.right-layout {
+        margin-left: 0 !important;
+        margin-bottom: 60px;
+    }
+}
