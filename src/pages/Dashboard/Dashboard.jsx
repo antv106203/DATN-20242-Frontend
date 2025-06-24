@@ -73,7 +73,6 @@ const Dashboard = () => {
     setLoading(true);
     try {
       const result = await accessChartData(range);
-      console.log(result);
       if(result.status_code === 200){
         setLoading(false);
         setInfoChartData(result.data)

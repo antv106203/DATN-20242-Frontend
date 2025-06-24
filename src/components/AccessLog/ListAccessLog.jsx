@@ -93,14 +93,17 @@ const ListAccessLog = () => {
             confirmButtonText: "Xóa",
             cancelButtonText: "Hủy"
         }).then(async (result) => {
-            if (result.isConfirmed) {
+            try {
                 const res = await deleteAccesslog(log._id);
                 if (res.status_code === 200) {
                     toast.success("Xóa thành công!");
                     fetchListAccessLog(); // reload danh sách
                 } else {
-                    toast.error(res.message);
+                    toast.error(res.message || "Xóa thất bại");
                 }
+            } catch (error) {
+                const msg = error?.response?.data?.message || "Có lỗi xảy ra khi xóa!";
+                toast.error(msg);
             }
         });
     };

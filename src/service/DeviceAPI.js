@@ -26,7 +26,6 @@ export const createDevice = async (device_name, department_id, mac_address) => {
 }
 
 export const getDeviceDetail = async (_id) => {
-    console.log(_id);
     const response = await axiosInstance.post("/device/detailDevice.json", {
         _id
     });

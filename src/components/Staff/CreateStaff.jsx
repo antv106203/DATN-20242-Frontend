@@ -75,9 +75,10 @@ const CreateStaff = () => {
                 }, 500);
             }
             else{
+                const messages = [].concat(res.message);
                 toast.error(
                     <div>
-                        {(res.message).map((msg, idx) => (
+                        {messages.map((msg, idx) => (
                             <div key={idx}>{msg}</div>
                         ))}
                     </div>
@@ -85,7 +86,7 @@ const CreateStaff = () => {
             }
         }
         catch (error) {
-            toast.error("Có lỗi xảy ra khi tạo người dùng!");
+            toast.error(`Có lỗi xảy ra khi tạo người dùng! ${error}`);
         }
         finally {
             setLoading(false);
@@ -96,7 +97,6 @@ const CreateStaff = () => {
         getListDepartment()
     }, []);
 
-    console.log(userData);
     return (
         <>
             {loading && (

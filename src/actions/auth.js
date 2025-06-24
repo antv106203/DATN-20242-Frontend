@@ -41,6 +41,7 @@ export const login = (email, password) => {
             localStorage.setItem('email', response.data.email);
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
+            localStorage.setItem('refreshToken', response.data.refreshToken);
 
             dispatch(loginSuccess());
 

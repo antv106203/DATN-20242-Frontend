@@ -70,7 +70,6 @@ const ListFingerprint = () => {
         setLoading(true);
         try {
             const res = await getListFingerprint(page, limit, search, order, status, user_id, device_id);
-            console.log("res", res);
             if(res.status_code === 200){
                 setListFingerprint(res.data);
                 setCurrentPage(res.pagination.page);
@@ -92,7 +91,6 @@ const ListFingerprint = () => {
     const handleFetchListDevice = async () => {
         try {
             const res = await getListDevice(1, 1000000, null, null, null);
-            console.log("res", res);
             if(res.status_code === 200){
                 setListDevice(res.data);
             }
@@ -221,7 +219,6 @@ const ListFingerprint = () => {
         fetchEmployeesByDepartment();
     }, [device_id]);
 
-    console.log("listFingerprint", listFingerprint);
     return (
         <>
             {showPopupRequestCreateFingerprint && <PopupRequestCreateFingerprint onClose={() => setShowPopupRequestCreateFingerprint(false)} onComplete={handleRequestComplete}/>}

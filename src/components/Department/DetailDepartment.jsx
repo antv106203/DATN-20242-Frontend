@@ -172,7 +172,6 @@ const DetailDepartment = () => {
     useEffect(() => {
         getListStaff();
     }, [page, limit, full_name, user_code]);
-    console.log(currentPage)
     /*
     return(
         <div className="detail-department-container">

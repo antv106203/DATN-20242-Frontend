@@ -42,7 +42,6 @@ const StaffDetail = () => {
         setLoading(true);
         try {
             const res = await getDetailStaff(_id);
-            console.log(res)
             if(res.status_code === 200){
                 setDetailStaff(res.informationOfUser);
                 setListFingerprint(res.informationOfUser.fingerprints);
@@ -131,7 +130,6 @@ const StaffDetail = () => {
     useEffect(() => {
         handleFetchDetailStaff();
     }, [showPopupDetail])
-    console.log("listfinger", listFingerprint)
     return (
         <>
             {loading && <Loading />}

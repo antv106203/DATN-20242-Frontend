@@ -27,7 +27,6 @@ const ListDepartment = () =>{
     const getListDepartment = async() =>{
         const result = await fetchListDepartment(search,order, floor);
         setListRoom(result.data);
-        console.log(result);
     }
 
     const handleSelectFloor = (floorName) => {

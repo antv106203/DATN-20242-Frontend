@@ -26,7 +26,7 @@ const PopupRequestCreateFingerprint = ({ onClose, onComplete }) => {
                 toast.error(res.message);
             }
         } catch (error) {
-            console.error("Error fetching data:", error)
+            toast.error("Error fetching data:", error)
         } finally {
             setLoading(false)
         }

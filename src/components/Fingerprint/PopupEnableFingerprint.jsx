@@ -11,7 +11,6 @@ const PopupEnableFingerprint = ({onClose, onConfirm, isVisible, initialExpiryDat
         setExpiryDate("");
     };
 
-    console.log(expiryDate)
 
     if (!isVisible) return null;
     return (

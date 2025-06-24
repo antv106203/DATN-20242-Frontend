@@ -10,6 +10,14 @@ export const loginAccount = async (email, password) =>{
     return response.data;
 }
 
+export const refreshToken = async () => {
+    const refreshToken = localStorage.getItem("refreshToken");
+    const response = await axiosInstance.post("/account/refresh_token", {
+        refreshToken
+    });
+    return response.data;
+}
+
 export const getListAccount = async (page, limit, email, role, status) => {
     const response = await axiosInstance.post("/account/listAccount.json", {
         page, limit, email, role, status

@@ -38,8 +38,6 @@ const AccountInfoPopup = ({ open, onClose }) => {
     useEffect(() => {
         handleFetchAccountInfo();
     }, [])
-
-    console.log(account);
     return (
         <>
             {loading && <Loading />}
