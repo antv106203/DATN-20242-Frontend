@@ -30,7 +30,6 @@ const CreateAccount = ({ visible, onClose, onConfirm }) => {
                     <label>Vai trò:</label>
                     <select value={role} onChange={(e) => setRole(e.target.value)}>
                         <option value="">Chọn vai trò</option>
-                        <option value="ADMIN">Quản lý</option>
                         <option value="GAURD">Nhân viên an ninh</option>
                     </select>
                 </div>
